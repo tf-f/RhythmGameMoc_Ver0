@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4912758659110002}
   - component: {fileID: 82591261760802074}
   m_Layer: 0
-  m_Name: "\u8133\u6F3F\u70B8\u88C2\u30AB\u3099\u30FC\u30EB"
+  m_Name: "\u8133\u6F3F\u70B8\u88C2\u30AC\u30FC\u30EB"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ee284bb21910dc543bc25ce92fc495cc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

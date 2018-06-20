@@ -20,17 +20,21 @@ public class NotesScript : MonoBehaviour {
     public bool _Good = false;
     public bool _Bad = false;
     /// !!!
+    ///     
     
 
     //public GameObject objects;
     public GameObject gm;
-
+   
     //private GameObject _judge;
     /*
     private Judge_script _js;
 
     private TapEffects _taps;
     */
+ 
+
+    
     private float DIF = 0.0f;
     private float SPEED = 1.0f;
     //double attack
@@ -76,6 +80,7 @@ public class NotesScript : MonoBehaviour {
         }
 
         //判定の状態 スパゲッティ(これ以外やり方分からない)
+        ///!!!要調整
         if (timer >= 1.4f + DIF && timer < 1.5f + DIF)
         {
             _Perfect = true;
@@ -83,7 +88,6 @@ public class NotesScript : MonoBehaviour {
             _Good = false;
             _Bad = false;
         }
-
         if ((timer > 1.35f + DIF && timer < 1.4f + DIF) || (timer >= 1.5f + DIF && timer < 1.55f + DIF))
         {
             _Great = true;
@@ -123,18 +127,67 @@ public class NotesScript : MonoBehaviour {
             switch(LINE)
             {
                 case 0:
-                    
+                    if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftArrow)
+                        || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow)
+                        || Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        Judgement();
+                    }
+                    break;
                 case 1:
+                    if (Input.GetKeyDown(KeyCode.C))
+                    {
+                        Judgement();
+                    }
+                    break;
                 case 2:
+                    if (Input.GetKeyDown(KeyCode.V))
+                    {
+                        Judgement();
+                    }
+                    break;
                 case 3:
+                    if (Input.GetKeyDown(KeyCode.N))
+                    {
+                        Judgement();
+                    }
+                    break;
                 case 4:
+                    if (Input.GetKeyDown(KeyCode.M))
+                    {
+                        Judgement();
+                    }
+                    break;
                 case 5:
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        Judgement();
+                    }
+                    break;
                 case 6:
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        Judgement();
+                    }
+                    break;
+                case 7:
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        Judgement();
+                    }
+                    break;
+                case 8:
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        Judgement();
+                    }
                     break;
                 default:
                     break;
             }
         }
+
+
     }
         
 

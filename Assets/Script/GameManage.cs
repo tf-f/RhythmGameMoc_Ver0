@@ -26,6 +26,8 @@ public class GameManage : MonoBehaviour
     public GameObject GameOver;
     public GameObject Clear;
     public GameObject FullCombo;
+    public GameObject te;
+
     //Effect Del
     public bool _ePerfect = false;
     public bool _eGreat = false;
@@ -131,6 +133,18 @@ public class GameManage : MonoBehaviour
         {
             combo_max = combo;
         }
+        if (_active)
+        {
+            //常時ノーツ生成
+            CheckNextNotes();
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGame();
+            }
+        }
 
         //その他調整など
         if (Input.GetKeyDown(KeyCode.Alpha8))
@@ -150,8 +164,17 @@ public class GameManage : MonoBehaviour
             Dif = dif - 0.1f;
         }
 
+        //強制終了
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+
     }
 
+
+    //ノーツの生成
     float GetMusicTime()
     {
         return Time.time - _startTime;
@@ -210,6 +233,8 @@ public class GameManage : MonoBehaviour
     
     }
 
+
+    //プレイ開始 トリガ
     public void StartGame()
     {
         StartButton.SetActive(false);
@@ -219,6 +244,7 @@ public class GameManage : MonoBehaviour
         _active = true;
     }
 
+    //楽曲ファイル データ 一括読み取り
     void LoadCSV()
     {
         int i = 0, j;
@@ -313,7 +339,7 @@ public class GameManage : MonoBehaviour
         }
     }
 
-
+    //フルコンボしているか？
     bool FullCombo_Check()
     {
         if (totalnotes == perfect_all+great_all)
@@ -322,6 +348,7 @@ public class GameManage : MonoBehaviour
         }
         return false;
     }
+    
     //終了処理
     private void End()
     {
@@ -344,10 +371,11 @@ public class GameManage : MonoBehaviour
         //Wait for 2Second
         //Using UniRx
         
-        Observable.Timer(TimeSpan.FromMilliseconds(10))
+        Observable.Timer(TimeSpan.FromMilliseconds(2000))
               .Subscribe(_ => SceneManager.LoadScene("Result")); 
     }
 
+    //スコア加算 ！比率調整
     void ScoreUpdate(int x)
     {
         double mag = 0.75;
@@ -367,13 +395,13 @@ public class GameManage : MonoBehaviour
         _eGood = false;
         _eBad = false;
         _eMiss = false;
+        te.GetComponent<TapEffects>().Perfect_Tap_Play();
         perfect_all++;
         combo++;
         ScoreUpdate(PERFECT_N);
         Instantiate(Perfect);
         life += 2;
     }
-
     public void GreatE()
     {
         _eGreat = true;
@@ -381,6 +409,7 @@ public class GameManage : MonoBehaviour
         _eGood = false;
         _eBad = false;
         _eMiss = false;
+        te.GetComponent<TapEffects>().Great_Tap_Play();
         great_all++;
         combo++;
         ScoreUpdate(GREAT_N);
@@ -394,6 +423,7 @@ public class GameManage : MonoBehaviour
         _eGreat = false;
         _eBad = false;
         _eMiss = false;
+        te.GetComponent<TapEffects>().Great_Tap_Play();
         good_all++;
         combo = 0;
         ScoreUpdate(GOOD_N);
@@ -407,6 +437,7 @@ public class GameManage : MonoBehaviour
         _eGreat = false;
         _eGood = false;
         _eMiss = false;
+        te.GetComponent<TapEffects>().Bad_Tap_Play();
         bad_all++;
         combo = 0;
         ScoreUpdate(BAD_N);
@@ -421,6 +452,7 @@ public class GameManage : MonoBehaviour
         _eGreat = false;
         _eGood = false;
         _eBad = false;
+        te.GetComponent<TapEffects>().Bad_Tap_Play();
         miss_all++;
         combo = 0;
         Instantiate(Miss);
@@ -428,11 +460,13 @@ public class GameManage : MonoBehaviour
         life -= 10;
     }
 
+    //Debug
     public void GoodTimingFunc(int num)
     {
 
         Debug.Log("Line:" + num + " good!");
     }
+
 
     //ノーツ速度に対するジャッジタイミングの調整
     ///
