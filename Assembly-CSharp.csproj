@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{675A014F-3374-E0A1-A154-1053015C712F}</ProjectGuid>
+    <ProjectGuid>{F82425DA-E2CB-E9BD-5EA7-753A9DB76BA5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -74,10 +74,10 @@
     <Compile Include="Assets\Script\Select_result.cs" />
     <Compile Include="Assets\Script\UI_script.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Tomo/Documents/GAME/RhythmGame ver0.1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Tomo/Documents/GitHub/RythmGameMoc_Ver0/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Tomo/Documents/GAME/RhythmGame ver0.1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tomo/Documents/GitHub/RythmGameMoc_Ver0/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.1.0b13/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -316,7 +316,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{8B8BBE81-7DB1-4461-398A-2D48647D943A}</Project>
+      <Project>{4A9447B7-A74F-42ED-63FE-DFDEF4DA1302}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

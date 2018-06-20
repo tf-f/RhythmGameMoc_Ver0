@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UniRx;
+using System;
 using UnityEngine;
 
 public class NotesScript : MonoBehaviour {
@@ -23,7 +25,7 @@ public class NotesScript : MonoBehaviour {
     //public GameObject objects;
     public GameObject gm;
 
-    private GameObject _judge;
+    //private GameObject _judge;
     /*
     private Judge_script _js;
 
@@ -67,15 +69,53 @@ public class NotesScript : MonoBehaviour {
         }
         this.transform.position += Vector3.down * SPEED * Time.deltaTime;
 
-        
+        //いるかこれ？
         if(true)
         {
             _active = true;
         }
 
+        //判定の状態 スパゲッティ(これ以外やり方分からない)
+        if (timer >= 1.4f + DIF && timer < 1.5f + DIF)
+        {
+            _Perfect = true;
+            _Great = false;
+            _Good = false;
+            _Bad = false;
+        }
 
-        //detect key judge
-        if (Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
+        if ((timer > 1.35f + DIF && timer < 1.4f + DIF) || (timer >= 1.5f + DIF && timer < 1.55f + DIF))
+        {
+            _Great = true;
+            _Perfect = false;
+            _Good = false;
+            _Bad = false;
+        }
+        if ((timer > 1.325f + DIF && timer <= 1.35f + DIF) || (timer >= 1.55f + DIF && timer < 1.58f + DIF))
+        {
+            _Good = true;
+            _Perfect = false;
+            _Great = false;
+            _Bad = false;
+        }
+        if ((timer <= 1.325f + DIF && timer >= 1.3f + DIF) || (timer >= 1.58f + DIF && timer <= 1.61f + DIF))
+        {
+            _Perfect = false;
+            _Great = false;
+            _Good = false;
+            _Bad = true;
+        }
+        if (timer > 1.61f + DIF)
+        {
+            _Perfect = false;
+            _Great = false;
+            _Good = false;
+            _Bad = false;
+            Judgement();
+        }
+
+            //detect key judge
+            if (Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
         {
             switch (LINE)
             {
@@ -97,14 +137,23 @@ public class NotesScript : MonoBehaviour {
 
     void Judgement()
     {
-        if (true)
+        if (_Perfect)
         {
             gm.GetComponent<GameManage>().PerfectE();
-        } else if(true){
+        } else if(_Great){
             gm.GetComponent<GameManage>().GreatE();
-        }else if(true){
+        }else if(_Good){
+            gm.GetComponent<GameManage>().GoodE();
+        }
+        else if (_Bad)
+        {
+            gm.GetComponent<GameManage>().BadE();
 
-        }else{
+        }
+        else
+        {
+            gm.GetComponent<GameManage>().Life--;
+            gm.GetComponent<GameManage>().MissE();
         }
 
         Deth();

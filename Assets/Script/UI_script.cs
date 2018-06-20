@@ -33,10 +33,18 @@ public class UI_script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        SPEED.text = gm.GetComponent<GameManage>().Speed.ToString();
+        if (gm.GetComponent<GameManage>().Speed == 0)
+        {
+            SPEED.text = "±0.0";
+        }
+        else
+        {
+            SPEED.text = gm.GetComponent<GameManage>().Speed.ToString();
+        }
+
         COMBO.text = gm.GetComponent<GameManage>().combo.ToString();
         COMBO_MAX.text = GameManage.combo_max.ToString();
-        while (GameManage.score != score_)
+        while (GameManage.score < score_)
         {
             score_+= 10;
             SCORE.text = score_.ToString();

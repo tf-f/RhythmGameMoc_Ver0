@@ -5,10 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UniRx;
-
+using System;
 
 public class GameManage : MonoBehaviour
 {
+    const int PERFECT_N = 300;
+    const int GREAT_N = 150;
+    const int GOOD_N = 100;
+    const int BAD_N = 30;
+
+    private int totalnotes;
     public GameObject StartButton;
     public bool done = false;
     //効果Effect
@@ -19,6 +25,7 @@ public class GameManage : MonoBehaviour
     public GameObject Miss;
     public GameObject GameOver;
     public GameObject Clear;
+    public GameObject FullCombo;
     //Effect Del
     public bool _ePerfect = false;
     public bool _eGreat = false;
@@ -39,6 +46,7 @@ public class GameManage : MonoBehaviour
     public static int good_all = 0;
     public static int bad_all = 0;
     public static int miss_all = 0;
+    public static bool _fullcombo;
 
     private float _startTime = 0;
     public int _notesCount = 0;
@@ -73,10 +81,11 @@ public class GameManage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         //ゲームの有効化
         done = true;
         //各値の初期化
+        _fullcombo = false;
+        totalnotes = 0;
         speed = 0f;
         score = 0;
         life = 40;
@@ -118,20 +127,23 @@ public class GameManage : MonoBehaviour
     void Update()
     {
         //各スコアなどのUI 更新
-
+        if(combo_max< combo)
+        {
+            combo_max = combo;
+        }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
 
         }
-
-
-
+        
     }
+
     float GetMusicTime()
     {
         return Time.time - _startTime;
     }
+
     void CheckNextNotes()
     {
         while (_timing[_notesCount] + Dif < GetMusicTime() && _timing[_notesCount] != 0)
@@ -198,11 +210,7 @@ public class GameManage : MonoBehaviour
 
     void LoadCSV()
     {
-
-                        //
-
         int i = 0, j;
-
 
         TextAsset csv = Resources.Load(filePass) as TextAsset;
         try
@@ -226,6 +234,7 @@ public class GameManage : MonoBehaviour
         {
             SceneManager.LoadScene("Catch Null");
         }
+        totalnotes = i;
         
     }
 
@@ -299,6 +308,15 @@ public class GameManage : MonoBehaviour
         }
     }
 
+
+    bool FullCombo_Check()
+    {
+        if (totalnotes == perfect_all+great_all)
+        {
+            return true;
+        }
+        return false;
+    }
     //終了処理
     private void End()
     {
@@ -310,18 +328,33 @@ public class GameManage : MonoBehaviour
         else
         {
             Instantiate(Clear);
+            if(FullCombo_Check())
+            {
+                _fullcombo = true;
+                Instantiate(FullCombo);
+              
+            }
         }
 
         //Wait for 2Second
         //Using UniRx
+        
+        Observable.Timer(TimeSpan.FromMilliseconds(10))
+              .Subscribe(_ => SceneManager.LoadScene("Result")); 
+    }
 
-
-        SceneManager.LoadScene("Result");
+    void ScoreUpdate(int x)
+    {
+        double mag = 0.75;
+        for(int i=combo; i > 0; i -= 50)
+        {
+            mag += 0.25;
+        }        
+        score += (int)((x * mag) /10) * 10;
     }
 
 
-
-    //効果表示用
+    //効果表示,加算用
     public void PerfectE()
     {
         _ePerfect = true;
@@ -329,8 +362,10 @@ public class GameManage : MonoBehaviour
         _eGood = false;
         _eBad = false;
         _eMiss = false;
+        perfect_all++;
+        combo++;
+        ScoreUpdate(PERFECT_N);
         Instantiate(Perfect);
-
     }
 
     public void GreatE()
@@ -340,6 +375,9 @@ public class GameManage : MonoBehaviour
         _eGood = false;
         _eBad = false;
         _eMiss = false;
+        great_all++;
+        combo++;
+        ScoreUpdate(GREAT_N);
         Instantiate(Great);
     }
     public void GoodE()
@@ -349,6 +387,9 @@ public class GameManage : MonoBehaviour
         _eGreat = false;
         _eBad = false;
         _eMiss = false;
+        good_all++;
+        combo = 0;
+        ScoreUpdate(GOOD_N);
         Instantiate(Good);
     }
     public void BadE()
@@ -359,8 +400,11 @@ public class GameManage : MonoBehaviour
         _eGreat = false;
         _eGood = false;
         _eMiss = false;
-
+        bad_all++;
+        combo = 0;
+        ScoreUpdate(BAD_N);
         Instantiate(Bad);
+        bad_all++;
     }
     public void MissE()
     {
@@ -369,8 +413,10 @@ public class GameManage : MonoBehaviour
         _eGreat = false;
         _eGood = false;
         _eBad = false;
-
+        miss_all++;
+        combo = 0;
         Instantiate(Miss);
+        miss_all++;
     }
 
     public void GoodTimingFunc(int num)

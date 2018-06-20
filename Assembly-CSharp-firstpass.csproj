@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{8B8BBE81-7DB1-4461-398A-2D48647D943A}</ProjectGuid>
+    <ProjectGuid>{4A9447B7-A74F-42ED-63FE-DFDEF4DA1302}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -304,10 +304,10 @@
     <Compile Include="Assets\Plugins\UniRx\Scripts\UnityWinRTBridge\ThreadPoolScheduler_UnityWinRT.cs" />
     <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Tomo/Documents/GAME/RhythmGame ver0.1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Tomo/Documents/GitHub/RythmGameMoc_Ver0/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Tomo/Documents/GAME/RhythmGame ver0.1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tomo/Documents/GitHub/RythmGameMoc_Ver0/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.1.0b13/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
