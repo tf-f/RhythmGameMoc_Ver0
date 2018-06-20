@@ -132,11 +132,24 @@ public class GameManage : MonoBehaviour
             combo_max = combo;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        //その他調整など
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-
+            Speed = speed + 0.1f;// + 0.1;
         }
-        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Speed = speed - 0.1f;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            Dif = dif + 0.1f;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Dif = dif - 0.1f;
+        }
+
     }
 
     float GetMusicTime()
@@ -154,8 +167,6 @@ public class GameManage : MonoBehaviour
         }
 
     }
-
-
 
     void SpawnNotes(int num)
     {
@@ -238,13 +249,6 @@ public class GameManage : MonoBehaviour
         
     }
 
-
-
-
-    /// !!!///!!!
-    /// </summary>
-    /// <param name="line_num"></param>
-    /// <returns></returns>
     //ノーツの二重処理防止
     public int Now_Notes(int line_num)
     {
@@ -267,6 +271,7 @@ public class GameManage : MonoBehaviour
             }
         }
     }
+
     //判定調整 プロパティ
     public float Dif
     {
@@ -366,6 +371,7 @@ public class GameManage : MonoBehaviour
         combo++;
         ScoreUpdate(PERFECT_N);
         Instantiate(Perfect);
+        life += 2;
     }
 
     public void GreatE()
@@ -379,6 +385,7 @@ public class GameManage : MonoBehaviour
         combo++;
         ScoreUpdate(GREAT_N);
         Instantiate(Great);
+        life += 1;
     }
     public void GoodE()
     {
@@ -405,6 +412,7 @@ public class GameManage : MonoBehaviour
         ScoreUpdate(BAD_N);
         Instantiate(Bad);
         bad_all++;
+        life -= 5;
     }
     public void MissE()
     {
@@ -417,6 +425,7 @@ public class GameManage : MonoBehaviour
         combo = 0;
         Instantiate(Miss);
         miss_all++;
+        life -= 10;
     }
 
     public void GoodTimingFunc(int num)

@@ -111,13 +111,16 @@ public class NotesScript : MonoBehaviour {
             _Great = false;
             _Good = false;
             _Bad = false;
-            Judgement();
+            gm.GetComponent<GameManage>().MissE();
+            Deth();
         }
 
-            //detect key judge
-            if (Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
+      
+
+        //detect key judge
+        if(Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
         {
-            switch (LINE)
+            switch(LINE)
             {
                 case 0:
                     
@@ -133,30 +136,31 @@ public class NotesScript : MonoBehaviour {
             }
         }
     }
-
+        
 
     void Judgement()
     {
+        //タップ音とかも追加
         if (_Perfect)
         {
             gm.GetComponent<GameManage>().PerfectE();
-        } else if(_Great){
+        }
+        else if (_Great)
+        {
             gm.GetComponent<GameManage>().GreatE();
-        }else if(_Good){
+        }
+        else if (_Good)
+        {
             gm.GetComponent<GameManage>().GoodE();
         }
         else if (_Bad)
         {
             gm.GetComponent<GameManage>().BadE();
-
         }
         else
         {
-            gm.GetComponent<GameManage>().Life--;
-            gm.GetComponent<GameManage>().MissE();
+            //
         }
-
-        Deth();
     }
 
     void Deth()

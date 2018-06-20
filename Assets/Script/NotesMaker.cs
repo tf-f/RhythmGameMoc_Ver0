@@ -75,7 +75,7 @@ public class NotesMaker : MonoBehaviour
             {
                 WriteNotesTiming(10);
             }
-            else
+                else
             {
                 WriteNotesTiming(0);
             }
