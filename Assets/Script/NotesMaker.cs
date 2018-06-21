@@ -27,7 +27,6 @@ public class NotesMaker : MonoBehaviour
         try
         {
             _CSVWriter = _CSVWriter.GetComponent<CSVWriter>();
-
         }
         catch
         {
@@ -46,6 +45,10 @@ public class NotesMaker : MonoBehaviour
         {
             DetectKeys();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartMusic();
+        }
         //終了処理
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -57,15 +60,16 @@ public class NotesMaker : MonoBehaviour
     public void StartMusic()
     {
         startButton.SetActive(false);
-
         _startTime = Time.time;
         _isPlaying = true;
+        Musics[Base.MusicNumber].Play();
     }
 
     void DetectKeys()
     {
         //WriteNotesTiming(null);
-        if (Input.GetKeyDown(KeyCode.Space)) // キーの設定
+        if (Input.GetKeyDown(KeyCode.Space))
+        // キーの設定
         {
             note_time[0] = GetTiming();
         }
@@ -75,7 +79,7 @@ public class NotesMaker : MonoBehaviour
             {
                 WriteNotesTiming(10);
             }
-                else
+            else
             {
                 WriteNotesTiming(0);
             }

@@ -19,22 +19,10 @@ public class NotesScript : MonoBehaviour {
     public bool _Great = false;
     public bool _Good = false;
     public bool _Bad = false;
-    /// !!!
-    ///     
-    
-
+  
     //public GameObject objects;
     public GameObject gm;
-   
-    //private GameObject _judge;
-    /*
-    private Judge_script _js;
-
-    private TapEffects _taps;
-    */
- 
-
-    
+     
     private float DIF = 0.0f;
     private float SPEED = 1.0f;
     //double attack
@@ -47,11 +35,7 @@ public class NotesScript : MonoBehaviour {
         DIF = gm.GetComponent<GameManage>().Dif;
         SPEED = gm.GetComponent<GameManage>().Speed;
         timer = 0f;
-        /*
-         * _taps = GameObject.Find("TapEffect").GetComponent<TapEffects>();
-         * _judge = GameObject.Find ("JudgEfects").GetComponent<Judge_script> ();
-         * _js = GameObject.Find("JudgEfects").GetComponent<Judge_script>();
-         */
+
         //double attack
         _Perfect = false;
         _Great = false;
@@ -80,21 +64,21 @@ public class NotesScript : MonoBehaviour {
 
         //判定の状態 スパゲッティ(これ以外やり方分からない)
         ///!!!要調整
-        if (timer >= 1.93f + DIF && timer < 1.975f + DIF)
+        if ( timer >= 1.93f + DIF && timer < 1.975f + DIF)
         {
             _Perfect = true;
             _Great = false;
             _Good = false;
             _Bad = false;
         }
-        if ((timer > 1.90f + DIF && timer < 1.93f + DIF) || (timer >= 1.975f + DIF && timer < 2.005f + DIF))
+        if (( timer > 1.90f + DIF && timer < 1.93f + DIF) || (timer >= 1.975f + DIF && timer < 2.005f + DIF))
         {
             _Great = true;
             _Perfect = false;
             _Good = false;
             _Bad = false;
         }
-        if ((timer > 1.87f + DIF && timer <= 1.90f + DIF) || (timer >= 2.005f + DIF && timer < 2.035f + DIF))
+        if (( timer > 1.87f + DIF && timer <= 1.90f + DIF) || (timer >= 2.005f + DIF && timer < 2.035f + DIF))
         {
             _Good = true;
             _Perfect = false;
@@ -108,7 +92,7 @@ public class NotesScript : MonoBehaviour {
             _Good = false;
             _Bad = true;
         }
-        if (timer > 2.055f + DIF)
+        if ( timer > 2.055f + DIF)
         {
             _Perfect = false;
             _Great = false;
@@ -118,10 +102,8 @@ public class NotesScript : MonoBehaviour {
             Deth();
         }
 
-      
-
         //detect key judge
-        if(Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
+        if( Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
         {
             switch(LINE)
             {
@@ -223,7 +205,6 @@ public class NotesScript : MonoBehaviour {
     {
         //Update Notes now Number
         gm.GetComponent<GameManage>()._Now_Line_Num[LINE]++;
-
         Destroy(this.gameObject);
     }
 }

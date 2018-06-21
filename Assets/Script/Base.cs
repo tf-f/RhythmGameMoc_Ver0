@@ -15,7 +15,7 @@ public class Base : MonoBehaviour {
 
 
     //譜面作成、モードの切り替え
-    public static bool SetMode = false;
+    public static bool SetMode = false; //false PlayGame true MakeGame
 
     void Start()
     {
