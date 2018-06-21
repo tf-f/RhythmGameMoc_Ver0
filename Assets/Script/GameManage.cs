@@ -65,7 +65,7 @@ public class GameManage : MonoBehaviour
      * 2 Line 2
      * 3 Line 3
      * 4 Line 4
-     * 6 Center left
+     * 5 Center left
      * 6 Center right
      * 7 Center up
      * 8 Center down
