@@ -7,6 +7,7 @@ public class CSVWriter : MonoBehaviour
 {
 
     public string fileName; // 保存するファイル名
+    public string[] database;//[] = new string ;
 
     void Start () {
         try

@@ -47,11 +47,11 @@ public class NotesScript : MonoBehaviour {
         DIF = gm.GetComponent<GameManage>().Dif;
         SPEED = gm.GetComponent<GameManage>().Speed;
         timer = 0f;
-        ////_taps = GameObject.Find("TapEffect").GetComponent<TapEffects>();
-        //_judge = GameObject.Find ("JudgEfects").GetComponent<Judge_script> ();
-
-        //_js = GameObject.Find("JudgEfects").GetComponent<Judge_script>();
-
+        /*
+         * _taps = GameObject.Find("TapEffect").GetComponent<TapEffects>();
+         * _judge = GameObject.Find ("JudgEfects").GetComponent<Judge_script> ();
+         * _js = GameObject.Find("JudgEfects").GetComponent<Judge_script>();
+         */
         //double attack
         _Perfect = false;
         _Great = false;
@@ -66,12 +66,11 @@ public class NotesScript : MonoBehaviour {
     void Update () {
         timer += Time.deltaTime;
         //Lifeが0になった時の強制終了処理
-        if(gm.GetComponent<GameManage>().done == false || this.transform.position.y <= -3.9f)
+        if(gm.GetComponent<GameManage>().done == false)// || this.transform.position.y <= -3.9f)
         {
-
-            Destroy(this.gameObject);
+            Deth();
         }
-        this.transform.position += Vector3.down * SPEED * Time.deltaTime;
+        this.transform.position += Vector3.down * SPEED * Time.deltaTime * 5;
 
         //いるかこれ？
         if(true)
@@ -81,35 +80,35 @@ public class NotesScript : MonoBehaviour {
 
         //判定の状態 スパゲッティ(これ以外やり方分からない)
         ///!!!要調整
-        if (timer >= 1.4f + DIF && timer < 1.5f + DIF)
+        if (timer >= 1.93f + DIF && timer < 1.975f + DIF)
         {
             _Perfect = true;
             _Great = false;
             _Good = false;
             _Bad = false;
         }
-        if ((timer > 1.35f + DIF && timer < 1.4f + DIF) || (timer >= 1.5f + DIF && timer < 1.55f + DIF))
+        if ((timer > 1.90f + DIF && timer < 1.93f + DIF) || (timer >= 1.975f + DIF && timer < 2.005f + DIF))
         {
             _Great = true;
             _Perfect = false;
             _Good = false;
             _Bad = false;
         }
-        if ((timer > 1.325f + DIF && timer <= 1.35f + DIF) || (timer >= 1.55f + DIF && timer < 1.58f + DIF))
+        if ((timer > 1.87f + DIF && timer <= 1.90f + DIF) || (timer >= 2.005f + DIF && timer < 2.035f + DIF))
         {
             _Good = true;
             _Perfect = false;
             _Great = false;
             _Bad = false;
         }
-        if ((timer <= 1.325f + DIF && timer >= 1.3f + DIF) || (timer >= 1.58f + DIF && timer <= 1.61f + DIF))
+        if (( timer >= 1.85f + DIF && timer <= 1.87f + DIF) || (timer >= 2.035f + DIF && timer <= 2.055f + DIF))
         {
             _Perfect = false;
             _Great = false;
             _Good = false;
             _Bad = true;
         }
-        if (timer > 1.61f + DIF)
+        if (timer > 2.055f + DIF)
         {
             _Perfect = false;
             _Great = false;
@@ -197,22 +196,26 @@ public class NotesScript : MonoBehaviour {
         if (_Perfect)
         {
             gm.GetComponent<GameManage>().PerfectE();
+            Deth();
         }
         else if (_Great)
         {
             gm.GetComponent<GameManage>().GreatE();
+            Deth();
         }
         else if (_Good)
         {
             gm.GetComponent<GameManage>().GoodE();
+            Deth();
         }
         else if (_Bad)
         {
             gm.GetComponent<GameManage>().BadE();
+            Deth();
         }
         else
         {
-            //
+            gm.GetComponent<GameManage>().Life-=1;
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class Selecter : MonoBehaviour {
+public class Select_home : MonoBehaviour {
     public int HOMEselect = 0;
     public int Setcase = 0; // Static....
 
@@ -16,13 +16,14 @@ public class Selecter : MonoBehaviour {
 
     }
 
-// Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
-            //makeUI;
+        {         //makeUI;
             //終了確認画面 UIの生成
             Application.Quit();
+        }
 
         if (HOMEselect < 2)
         {

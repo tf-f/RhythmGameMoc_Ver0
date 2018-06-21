@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ErrorDebug : MonoBehaviour
 {
     private float timer = 0.0f;
     // Use this for initialization

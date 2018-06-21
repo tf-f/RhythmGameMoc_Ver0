@@ -239,8 +239,13 @@ public class GameManage : MonoBehaviour
     {
         StartButton.SetActive(false);
         _startTime = Time.time;
-
-        Music_all[Base.MusicNumber].Play();
+        try{
+            Music_all[Base.MusicNumber].Play();
+        }
+        catch {
+            Debug.Log("Null reference Error!");
+            SceneManager.LoadScene("Error");
+        }
         _active = true;
     }
 

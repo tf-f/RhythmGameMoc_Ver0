@@ -21,11 +21,16 @@ public class Base : MonoBehaviour {
     {
         SetMode = false;
     }
+    void Update()
+    {
+      
 
+    }
     string Names(int i){
         
         return "a";
     }
+
 
 
 
