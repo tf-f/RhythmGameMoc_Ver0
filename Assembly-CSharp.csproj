@@ -74,6 +74,7 @@
     <Compile Include="Assets\Script\Select_result.cs" />
     <Compile Include="Assets\Script\TapEffects.cs" />
     <Compile Include="Assets\Script\UI_script.cs" />
+    <Compile Include="Assets\UI\Judge_Effect_Del.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Tomo/Documents/GitHub/RythmGameMoc_Ver0/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

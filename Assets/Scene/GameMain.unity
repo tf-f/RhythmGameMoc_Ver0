@@ -2435,9 +2435,9 @@ MonoBehaviour:
   Good: {fileID: 1424777473531714, guid: dc3cd4bc236f8314d9ef5cabf1e6a18a, type: 2}
   Bad: {fileID: 1223220332591408, guid: a29708eecf5ddec46a238f4b450339cc, type: 2}
   Miss: {fileID: 1257631816852914, guid: 67c8bb96a430cde46b3a6c7b4396ccdc, type: 2}
-  GameOver: {fileID: 0}
-  Clear: {fileID: 0}
-  FullCombo: {fileID: 0}
+  GameOver: {fileID: 1210071940527336, guid: 612664f5efc7fc4439478a115978bc9d, type: 2}
+  Clear: {fileID: 1572898447057808, guid: b2566605bb9331e4ebc0dd5e647e10c3, type: 2}
+  FullCombo: {fileID: 1798665026060400, guid: 79dde846476009f4ea62ff741d616139, type: 2}
   te: {fileID: 1163185771}
   _ePerfect: 0
   _eGreat: 0
@@ -2460,15 +2460,15 @@ MonoBehaviour:
   - 0
   _Now_Line_Num: 000000000000000000000000000000000000000000000000000000000000000000000000
   notes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1284164575274010, guid: 88b44601f9988bc409abe47ae3da551d, type: 2}
+  - {fileID: 1412424001912226, guid: f88405a9a9e20ff4280e6fc4594a8790, type: 2}
+  - {fileID: 1607152519796716, guid: 150d52bb777793147b14fecb911ef534, type: 2}
+  - {fileID: 1612463977423992, guid: f98522efdc1089144b0cadb8767799f6, type: 2}
+  - {fileID: 1661828547489538, guid: f5b10fe81b00ddd4789d807561e16cc9, type: 2}
+  - {fileID: 1564166460396380, guid: bfca0f58cbf6b524a8735257067f8845, type: 2}
+  - {fileID: 1056323887135150, guid: 584e43d1bd274004e82e9cc05d386de7, type: 2}
+  - {fileID: 1895586489313754, guid: 29c3975fe61f15042a67055a23dc0009, type: 2}
+  - {fileID: 1781357899535724, guid: bb1a467cd41f0784b97f8142c5ad1ce8, type: 2}
   Music_all:
   - {fileID: 82591261760802074, guid: 79a0ab93e2f592949b15d69e635e8760, type: 2}
   - {fileID: 82240538799044636, guid: e02f0971089caa04c9dc42f632275eac, type: 2}
