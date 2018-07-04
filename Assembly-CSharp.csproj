@@ -73,6 +73,7 @@
     <Compile Include="Assets\Script\Select_music.cs" />
     <Compile Include="Assets\Script\Select_result.cs" />
     <Compile Include="Assets\Script\Selecter_home.cs" />
+    <Compile Include="Assets\Script\Selecter_Select_Direction.cs" />
     <Compile Include="Assets\Script\TapEffects.cs" />
     <Compile Include="Assets\Script\UI_script.cs" />
     <Reference Include="UnityEditor.StandardEvents">

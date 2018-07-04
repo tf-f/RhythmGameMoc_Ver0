@@ -41,13 +41,10 @@ public class Select_home : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && Input.GetKeyDown(KeyCode.M) && Input.GetKeyDown(KeyCode.Space))
-        {
-            Base.SetMode = true;
-            SceneManager.LoadScene("GameResult_all");
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             switch (HOMEselect)
             {

@@ -7,7 +7,7 @@ using UnityEngine;
 //This script Updated at 16:05 2018/02/26 完成
 public class NotesMaker : MonoBehaviour
 {
-    public float L_Notes = 0.3f;
+    public float L_Notes = 0.6f;
     public AudioSource[] Musics;
     //    private AudioSource **;
     private float _startTime = 0;

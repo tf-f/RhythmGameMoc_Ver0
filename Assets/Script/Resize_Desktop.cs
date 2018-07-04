@@ -6,7 +6,7 @@ public class GameInitial //: MonoBehaviour
     static void OnRuntimeMethodLoad()
     {
         //画面比率の強制固定
-        Screen.SetResolution(1280,720, false, 80);
+        Screen.SetResolution(1000,545, false, 80);
 
     }
 
