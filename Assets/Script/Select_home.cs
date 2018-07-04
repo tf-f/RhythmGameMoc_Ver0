@@ -7,9 +7,10 @@ public class Select_home : MonoBehaviour {
     public int HOMEselect = 0;
     public int Setcase = 0; // Static....
 
+    public GameObject[] Button;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         Base.SetMode = false; //再帰復帰時の初期化
         HOMEselect = 0;
         Setcase = 0;
@@ -22,10 +23,10 @@ public class Select_home : MonoBehaviour {
         if (Input.GetKey(KeyCode.Escape))
         {         //makeUI;
             //終了確認画面 UIの生成
-            Application.Quit();
+            GameEnd();
         }
 
-        if (HOMEselect < 2)
+        if (HOMEselect < 3)
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
@@ -51,22 +52,57 @@ public class Select_home : MonoBehaviour {
             switch (HOMEselect)
             {
                 case 0:
-                    Base.SetMode= false;
-                    SceneManager.LoadScene("SelectMusic");
+                    Base.SetMode = false;
+                    Select_Music();
                     break;
                 case 1:
-                    SceneManager.LoadScene("Results_all");
+                    Show_Result();
                     break;
                 case 2:
-                    Application.Quit();
+                    Base.SetMode = true;
+                    Select_Music();
                     break;
                 case 3:
-                    SceneManager.LoadScene("SelectMusic");
+                    GameEnd();
                     break;
                 default:
                     Debug.Log("Not selected");
                     break;
             }
         }
+    }
+
+    private void Button_Reset_ALL()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Button[i].SetActive(false);
+        }
+    }
+
+    public void SetMode()
+    {
+        Button_Reset_ALL();
+        Base.SetMode = true;
+        Select_Music();
+    }
+
+    public void Select_Music()
+    {
+        Button_Reset_ALL();
+        Base.SetMode = false;
+        SceneManager.LoadScene("SelectMusic");
+    }
+
+    public void Show_Result()
+    {
+        Button_Reset_ALL();
+        SceneManager.LoadScene("Results_all");
+    }
+
+    public void GameEnd()
+    {
+        Button_Reset_ALL();
+        Application.Quit();
     }
 }
