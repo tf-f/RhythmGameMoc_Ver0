@@ -142,11 +142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   L_Notes: 0.3
   Musics:
-  - {fileID: 82189821043108352, guid: 35ac3bf5c7ff47e4685b557cafb867dc, type: 2}
-  - {fileID: 82446504126545682, guid: 6052390bfa3525d44bcecd3e051c0876, type: 2}
-  - {fileID: 82189821043108352, guid: 35ac3bf5c7ff47e4685b557cafb867dc, type: 2}
-  - {fileID: 82189821043108352, guid: 35ac3bf5c7ff47e4685b557cafb867dc, type: 2}
-  - {fileID: 82189821043108352, guid: 35ac3bf5c7ff47e4685b557cafb867dc, type: 2}
+  - {fileID: 8300000, guid: 7c6fd03f66811bf48a927bf2753d4739, type: 3}
+  - {fileID: 8300000, guid: 86bbc575787442f4c88cb94f0bfb58e6, type: 3}
+  - {fileID: 8300000, guid: 86bbc575787442f4c88cb94f0bfb58e6, type: 3}
+  - {fileID: 8300000, guid: 9923945d4898aed48a5baca2ca4a0b69, type: 3}
+  - {fileID: 8300000, guid: 9923945d4898aed48a5baca2ca4a0b69, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _CSVWriter: {fileID: 1118768503}
-  startButton: {fileID: 0}
+  startButton: {fileID: 830987130}
   note_time:
   - 0
   - 0
@@ -664,5 +664,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb0bba8875c57e40965971ed4a28750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: 
+  fileName: CSV\Data
   database: []

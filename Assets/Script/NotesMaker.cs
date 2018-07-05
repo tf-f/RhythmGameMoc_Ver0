@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -8,7 +10,8 @@ using UnityEngine;
 public class NotesMaker : MonoBehaviour
 {
     public float L_Notes = 0.6f;
-    public AudioSource[] Musics;
+    public AudioClip[] Musics;
+    public AudioSource AS;
     //    private AudioSource **;
     private float _startTime = 0;
     private float _timer = 0;
@@ -22,6 +25,8 @@ public class NotesMaker : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        AS = GetComponent<AudioSource>();
+        //Musics = gameObject.GetComponents<AudioSource>();
         _isPlaying = false;
         _timer = 0;
         try
@@ -41,10 +46,6 @@ public class NotesMaker : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_isPlaying)
-        {
-            DetectKeys();
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartMusic();
@@ -56,13 +57,26 @@ public class NotesMaker : MonoBehaviour
             SceneManager.LoadScene("HOME");
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && !_isPlaying)
+        {
+            StartMusic();
+        }
+
+        if (_isPlaying)
+        {
+            DetectKeys();
+        }
     }
     public void StartMusic()
     {
         startButton.SetActive(false);
         _startTime = Time.time;
         _isPlaying = true;
-        Musics[Base.MusicNumber].Play();
+
+        GetComponent<AudioSource>().clip = Musics[Base.MusicNumber];
+        GetComponent<AudioSource>().Play();
+
+        //Musics[Base.MusicNumber].Play();
     }
 
     void DetectKeys()

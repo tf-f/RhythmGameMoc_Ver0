@@ -75,7 +75,7 @@ public class GameManage : MonoBehaviour
      *     
      * 
      */
-    public AudioSource[] Music_all;
+    public AudioClip[] Music_all;
     
 
     public bool _active = false;
@@ -83,6 +83,7 @@ public class GameManage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Music_all = gameObject.GetComponents<AudioSource>();
         //ゲームの有効化
         done = true;
         //各値の初期化
@@ -240,7 +241,9 @@ public class GameManage : MonoBehaviour
         StartButton.SetActive(false);
         _startTime = Time.time;
         try{
-            Music_all[Base.MusicNumber].Play();
+            GetComponent<AudioSource>().clip = Music_all[Base.MusicNumber];
+            GetComponent<AudioSource>().Play();
+            //Music_all[Base.MusicNumber].Play();
         }
         catch {
             Debug.Log("Null reference Error!");
@@ -274,7 +277,7 @@ public class GameManage : MonoBehaviour
         }
         catch
         {
-            SceneManager.LoadScene("Catch Null");
+            SceneManager.LoadScene("Error");
         }
         totalnotes = i;
         

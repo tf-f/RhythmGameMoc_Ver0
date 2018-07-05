@@ -14,7 +14,7 @@ public class Select_music : MonoBehaviour {
     private int count = 0;
     //public bool select_level = false; //false MusicSelect true MusicLevelSelect
     public bool enable_select = true;
-
+    public bool setmode;
     public GameObject Start_Button;
     public GameObject[] Levels_Button;
     public GameObject[] Music_Button;
@@ -37,6 +37,7 @@ public class Select_music : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        setmode = Base.SetMode;
         //Debug
         music = Base.MusicNumber;
         level = Base.MusicLevel;

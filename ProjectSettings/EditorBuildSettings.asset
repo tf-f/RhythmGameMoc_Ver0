@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scene/SelectMusic.unity
     guid: 682654899eec5a846be9e6c773723c99
   - enabled: 1
-    path: Assets/Scene/GameMain.unity
-    guid: 8cf6ccdcf3266dc4095e69d68c33c963
-  - enabled: 1
     path: Assets/Scene/CreateMode.unity
     guid: 8da87b1b7f339d24cbcab29eb38aff27
+  - enabled: 1
+    path: Assets/Scene/GameMain.unity
+    guid: 8cf6ccdcf3266dc4095e69d68c33c963
   - enabled: 1
     path: Assets/Scene/Result.unity
     guid: 910fcb1a0883c424a9d72c0c7332c077
@@ -26,3 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Error.unity
     guid: 4c868a2bfe6ce2c43b74c73dd11808e3
+  m_configObjects: {}

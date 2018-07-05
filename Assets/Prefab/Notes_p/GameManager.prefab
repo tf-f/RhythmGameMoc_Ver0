@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1823704725276984}
+  m_IsPrefabParent: 1
+--- !u!1 &1823704725276984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4589583598605826}
+  - component: {fileID: 114085369204996454}
+  - component: {fileID: 114486045486045116}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4589583598605826
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823704725276984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114085369204996454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823704725276984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7922c538cbdcc543a60cb974d569af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartButton: {fileID: 0}
+  done: 0
+  Perfect: {fileID: 1846506103821986, guid: fb9b815f9ce69744aa0408e4fcd3ecf9, type: 2}
+  Great: {fileID: 1063580532093968, guid: 309ab1e8310e04a47a20b0795401f5d1, type: 2}
+  Good: {fileID: 1424777473531714, guid: dc3cd4bc236f8314d9ef5cabf1e6a18a, type: 2}
+  Bad: {fileID: 1223220332591408, guid: a29708eecf5ddec46a238f4b450339cc, type: 2}
+  Miss: {fileID: 1257631816852914, guid: 67c8bb96a430cde46b3a6c7b4396ccdc, type: 2}
+  GameOver: {fileID: 1210071940527336, guid: 612664f5efc7fc4439478a115978bc9d, type: 2}
+  Clear: {fileID: 1572898447057808, guid: b2566605bb9331e4ebc0dd5e647e10c3, type: 2}
+  FullCombo: {fileID: 1798665026060400, guid: 79dde846476009f4ea62ff741d616139, type: 2}
+  te: {fileID: 0}
+  _ePerfect: 0
+  _eGreat: 0
+  _eGood: 0
+  _eBad: 0
+  _eMiss: 0
+  combo: 0
+  _notesCount: 0
+  _lineNum: 000000000000000000000000000000000000000000000000000000000000000000000000
+  filePass: 
+  _timing:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  _Now_Line_Num: 000000000000000000000000000000000000000000000000000000000000000000000000
+  notes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Music_all:
+  - {fileID: 82591261760802074, guid: 79a0ab93e2f592949b15d69e635e8760, type: 2}
+  - {fileID: 82240538799044636, guid: e02f0971089caa04c9dc42f632275eac, type: 2}
+  - {fileID: 82446504126545682, guid: 6052390bfa3525d44bcecd3e051c0876, type: 2}
+  - {fileID: 82189821043108352, guid: 35ac3bf5c7ff47e4685b557cafb867dc, type: 2}
+  - {fileID: 82646878303555604, guid: 97f0400944f5eb94cad09db80637ee94, type: 2}
+  - {fileID: 82182236908912136, guid: ffef3cfa9e29c5746b18479442c3f114, type: 2}
+  - {fileID: 82736128118451230, guid: 23bc29c3d419d2440a64dea85100255c, type: 2}
+  - {fileID: 82339008426861052, guid: d39bdb37eeac2454d810a998aee8c1c2, type: 2}
+  - {fileID: 82473292023859390, guid: 4e50bd7422b326d4a86b1fcd55d5d7ce, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _active: 0
+--- !u!114 &114486045486045116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823704725276984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889ea44b5e878f642ae837cfc47177f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCORE: {fileID: 0}
+  LIFE: {fileID: 0}
+  SPEED: {fileID: 0}
+  COMBO: {fileID: 0}
+  COMBO_MAX: {fileID: 0}
+  Sum_Jg: []
+  gm: {fileID: 1823704725276984}

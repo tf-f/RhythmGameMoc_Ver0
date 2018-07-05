@@ -56,7 +56,7 @@ public class Select_home : MonoBehaviour {
                     Base.SetMode = true;
                     Select_Music();
                     break;
-                case 2:
+                case 2: 
                     Show_Result();
                     break;
                 case 3:
@@ -87,7 +87,6 @@ public class Select_home : MonoBehaviour {
     public void Select_Music()
     {
         Button_Reset_ALL();
-        Base.SetMode = false;
         SceneManager.LoadScene("SelectMusic");
     }
 
