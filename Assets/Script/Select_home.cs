@@ -53,11 +53,11 @@ public class Select_home : MonoBehaviour {
                     Select_Music();
                     break;
                 case 1:
-                    Show_Result();
-                    break;
-                case 2:
                     Base.SetMode = true;
                     Select_Music();
+                    break;
+                case 2:
+                    Show_Result();
                     break;
                 case 3:
                     GameEnd();

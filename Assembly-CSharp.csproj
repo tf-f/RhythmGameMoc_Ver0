@@ -62,6 +62,7 @@
     <Compile Include="Assets\Script\Base.cs" />
     <Compile Include="Assets\Script\CSVWriter.cs" />
     <Compile Include="Assets\Script\ErrorDebug.cs" />
+    <Compile Include="Assets\Script\FPS.cs" />
     <Compile Include="Assets\Script\GameManage.cs" />
     <Compile Include="Assets\Script\HP_Color.cs" />
     <Compile Include="Assets\Script\HP_Control.cs" />

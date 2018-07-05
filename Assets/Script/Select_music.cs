@@ -17,12 +17,15 @@ public class Select_music : MonoBehaviour {
 
     public GameObject Start_Button;
     public GameObject[] Levels_Button;
+    public GameObject[] Music_Button;
     //Debug
     public int level = 0;
     public int music = 0;
 
+    public int music_sort_dif = 0;
+
 	void Start () {
-        Button_True();
+        Button_Level_True();
         Levels_Button[0].GetComponent<Image>().color = Color.yellow;
         Base.MusicLevel = 0;
         Base.MusicNumber = 0;
@@ -37,7 +40,10 @@ public class Select_music : MonoBehaviour {
         //Debug
         music = Base.MusicNumber;
         level = Base.MusicLevel;
-
+        if(Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.U))
+        {
+            Base.SetMode = true;
+        }
         //Escape3回の入力でホームへ強制移動
         if (count > 3)
         {
@@ -133,16 +139,32 @@ public class Select_music : MonoBehaviour {
     
     public void Level_Change(int x)
     {
-        Button_True();
+        Button_Level_True();
         Levels_Button[x].GetComponent<Image>().color= Color.yellow;
         Base.MusicLevel = x;
     }
 
-    public void Button_True()
+    public void Music_Change(int x)
     {
-        for(int i= 0; i < 5; i++)
+        Button_Music_True();
+        x += music_sort_dif;
+        Music_Button[x].GetComponent<Image>().color = Color.yellow;
+        Base.MusicNumber = x;
+    }
+
+    public void Button_Level_True()
+    {
+        for(int i= 0; i < Levels_Button.Length; i++)
         {
             Levels_Button[i].GetComponent<Image>().color = Color.white;
+        }
+    }
+    
+    public void Button_Music_True()
+    {
+        for(int i=0; i < Music_Button.Length; i++)
+        {
+            Music_Button[i].GetComponent<Image>().color = Color.white;
         }
     }
     
