@@ -10,8 +10,13 @@ using UnityEngine;
 public class NotesMaker : MonoBehaviour
 {
     public float L_Notes = 0.6f;
-    public AudioClip[] Musics;
-    public AudioSource AS;
+
+    AudioSource audioSource;
+    public List<AudioClip> audioClip = new List<AudioClip>();
+
+    //public AudioSource[] Musics;
+    //private AudioSource MUSIC;
+    //public AudioSource AS;
     //    private AudioSource **;
     private float _startTime = 0;
     private float _timer = 0;
@@ -25,8 +30,11 @@ public class NotesMaker : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        AS = GetComponent<AudioSource>();
+        //AS = GetComponent<AudioSource>();
+        //AudioSource[] Audios = GetComponents<AudioSource>();
+        //Musics[Base.MusicNumber] = Audios[Base.MusicNumber];
         //Musics = gameObject.GetComponents<AudioSource>();
+        audioSource = gameObject.AddComponent<AudioSource>();
         _isPlaying = false;
         _timer = 0;
         try
@@ -46,10 +54,6 @@ public class NotesMaker : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartMusic();
-        }
         //終了処理
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -73,10 +77,14 @@ public class NotesMaker : MonoBehaviour
         _startTime = Time.time;
         _isPlaying = true;
 
-        GetComponent<AudioSource>().clip = Musics[Base.MusicNumber];
-        GetComponent<AudioSource>().Play();
-
+        //GetComponent<AudioSource>().clip = Musics[Base.MusicNumber];
+        //GetComponent<AudioSource>().Play();
+        //MUSIC.PlayOneShot(MUSIC.clip);
         //Musics[Base.MusicNumber].Play();
+        // audio.PlayOneShot(Musics[Base.MusicNumber]);
+        //Musics[Base.MusicNumber].PlayOneShot(Musics[Base.MusicNumber].clip);
+        audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
+
     }
 
     void DetectKeys()
@@ -101,7 +109,7 @@ public class NotesMaker : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             note_time[1] = GetTiming();
         }
@@ -175,7 +183,7 @@ public class NotesMaker : MonoBehaviour
         {
             note_time[5] = GetTiming();
         }
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if(GetTiming() - note_time[5] >= L_Notes)
             {
@@ -189,7 +197,7 @@ public class NotesMaker : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             note_time[6] = GetTiming();
         }
@@ -207,7 +215,7 @@ public class NotesMaker : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             note_time[7] = GetTiming();
         }
@@ -224,7 +232,7 @@ public class NotesMaker : MonoBehaviour
             note_time[7] = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             note_time[8] = GetTiming();
         }

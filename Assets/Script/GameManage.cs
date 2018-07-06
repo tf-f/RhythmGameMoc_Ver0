@@ -39,7 +39,7 @@ public class GameManage : MonoBehaviour
     public static int score = 0;
     public static int life = 100;
     public static float percent = 0.0f;
-    private int time = 0;
+    //private int time = 0;
     private float dif = 0.0f;
     public int combo;
     public static int combo_max;
@@ -75,14 +75,16 @@ public class GameManage : MonoBehaviour
      *     
      * 
      */
-    public AudioClip[] Music_all;
-    
+    AudioSource audioSource;
+    public List<AudioClip> audioClip = new List<AudioClip>();
 
     public bool _active = false;
 
     // Use this for initialization
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         //Music_all = gameObject.GetComponents<AudioSource>();
         //ゲームの有効化
         done = true;
@@ -93,7 +95,7 @@ public class GameManage : MonoBehaviour
         score = 0;
         life = 40;
         percent = 0.0f;
-        time = 0;
+        //time = 0;
         dif = 0.0f;
         combo = 0;
         combo_max = 0;
@@ -241,9 +243,10 @@ public class GameManage : MonoBehaviour
         StartButton.SetActive(false);
         _startTime = Time.time;
         try{
-            GetComponent<AudioSource>().clip = Music_all[Base.MusicNumber];
-            GetComponent<AudioSource>().Play();
+            // GetComponent<AudioSource>().clip = Music_all[Base.MusicNumber];
+            // GetComponent<AudioSource>().Play();
             //Music_all[Base.MusicNumber].Play();
+            audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
         }
         catch {
             Debug.Log("Null reference Error!");
