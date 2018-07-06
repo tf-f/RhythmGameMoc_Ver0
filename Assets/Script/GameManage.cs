@@ -100,7 +100,7 @@ public class GameManage : MonoBehaviour
         life = 40;
         percent = 0.0f;
         //time = 0;
-        dif = 2.0f;
+        dif = 0.0f;
         combo = 0;
         combo_max = 0;
         perfect_all = 0;
@@ -144,6 +144,14 @@ public class GameManage : MonoBehaviour
             life = 0;
             _active = false;
             End();
+        }
+        if(life > 100)
+        {
+            life = 100;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Home");
         }
         if (_active)
         {
@@ -212,7 +220,9 @@ public class GameManage : MonoBehaviour
     {
         Debug.Log(num);
         // 終了処理
-        float pdif = 0.0f;
+        
+        /*
+                 float pdif = 0.0f;
         float alpha = 0.0f;
         switch (num)
         {
@@ -245,6 +255,8 @@ public class GameManage : MonoBehaviour
 
         }
 
+        */
+
         Instantiate(notes[num]);
         //,            new Vector3(-7.4f + pdif, 5.0f+alpha, -2.6f),
         //    Quaternion.identity);     //Vector修正
@@ -258,19 +270,20 @@ public class GameManage : MonoBehaviour
     {
         StartButton.SetActive(false);
         _startTime = Time.time;
+        _active = true;
         try{
             // GetComponent<AudioSource>().clip = Music_all[Base.MusicNumber];
             // GetComponent<AudioSource>().Play();
             //Music_all[Base.MusicNumber].Play();
-           
-            audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
             audioSource.volume = 0.05f;
+            Observable.Timer(TimeSpan.FromMilliseconds(2000))
+              .Subscribe(_ =>
+            audioSource.PlayOneShot(audioClip[Base.MusicNumber]));
         }
         catch {
             Debug.Log("Audio failed!");
             //SceneManager.LoadScene("Error");
         }
-        _active = true;
     }
 
     //楽曲ファイル データ 一括読み取り

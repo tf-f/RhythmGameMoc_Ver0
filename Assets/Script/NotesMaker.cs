@@ -26,10 +26,13 @@ public class NotesMaker : MonoBehaviour
     public GameObject startButton;
 
     public float[] note_time;
-
+    float dtm = 0;
+    bool de = false;
     // Use this for initialization
     void Start()
     {
+        de = true;
+        dtm = 0f;
         //AS = GetComponent<AudioSource>();
         //AudioSource[] Audios = GetComponents<AudioSource>();
         //Musics[Base.MusicNumber] = Audios[Base.MusicNumber];
@@ -53,6 +56,8 @@ public class NotesMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
         _timer += Time.deltaTime;
         //終了処理
         if (Input.GetKeyDown(KeyCode.Q))
@@ -75,6 +80,8 @@ public class NotesMaker : MonoBehaviour
         startButton.SetActive(false);
         _startTime = Time.time;
         _isPlaying = true;
+        audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
+        audioSource.volume = 0.5f;
 
         //GetComponent<AudioSource>().clip = Musics[Base.MusicNumber];
         //GetComponent<AudioSource>().Play();
@@ -82,7 +89,6 @@ public class NotesMaker : MonoBehaviour
         //Musics[Base.MusicNumber].Play();
         // audio.PlayOneShot(Musics[Base.MusicNumber]);
         //Musics[Base.MusicNumber].PlayOneShot(Musics[Base.MusicNumber].clip);
-        audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
 
     }
 
