@@ -992,7 +992,7 @@ Prefab:
     - target: {fileID: 114085369204996454, guid: 747098e10e331c24ea94ff6097078239,
         type: 2}
       propertyPath: filePass
-      value: CSV/Data
+      value: CSV/Data/
       objectReference: {fileID: 0}
     - target: {fileID: 114085369204996454, guid: 747098e10e331c24ea94ff6097078239,
         type: 2}

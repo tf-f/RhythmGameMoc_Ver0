@@ -244,7 +244,7 @@ public class GameManage : MonoBehaviour
             //Music_all[Base.MusicNumber].Play();
            
             audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
-            audioSource.volume = 0.5f;
+            audioSource.volume = 0.2f;
         }
         catch {
             Debug.Log("Audio failed!");
@@ -259,7 +259,7 @@ public class GameManage : MonoBehaviour
         int i = 0, j;
 
         TextAsset csv = Resources.Load(filePass) as TextAsset;
-        Debug.Log("CSV Loading" + csv);
+        Debug.Log("CSV Loading" + filePass);
         try
         {
             StringReader reader = new StringReader(csv.text);
