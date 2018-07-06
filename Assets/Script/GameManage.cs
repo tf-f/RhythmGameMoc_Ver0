@@ -111,20 +111,14 @@ public class GameManage : MonoBehaviour
 
         //は？
         //生成されたノーツとジャッジ対象の参照用
-        _Line_Num = new int[]{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        _Now_Line_Num = new int []{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        _Line_Num = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        _Now_Line_Num = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
         _active = false;
-        try
-        {
-            filePass = Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
-            LoadCSV();
-        }
-        catch
-        {
-            Debug.Log("Null reference Error!");
-            SceneManager.LoadScene("Error");
-        }
+
+        filePass = Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
+        LoadCSV();
+
 
     }
 
@@ -249,7 +243,7 @@ public class GameManage : MonoBehaviour
             audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
         }
         catch {
-            Debug.Log("Null reference Error!");
+            Debug.Log("Audio failed!");
             SceneManager.LoadScene("Error");
         }
         _active = true;
@@ -263,6 +257,7 @@ public class GameManage : MonoBehaviour
         TextAsset csv = Resources.Load(filePass) as TextAsset;
         try
         {
+            Debug.Log("CSV Loading");
             StringReader reader = new StringReader(csv.text);
             while (reader.Peek() > -1)
             {
@@ -277,9 +272,11 @@ public class GameManage : MonoBehaviour
                 }
                 i++;
             }
+            Debug.Log("CSV Load Loaded");
         }
         catch
         {
+            Debug.Log("CSV Load failed");
             SceneManager.LoadScene("Error");
         }
         totalnotes = i;
@@ -381,7 +378,7 @@ public class GameManage : MonoBehaviour
 
         //Wait for 2Second
         //Using UniRx
-        
+        Debug.Log("Finish! GameOver");
         Observable.Timer(TimeSpan.FromMilliseconds(2000))
               .Subscribe(_ => SceneManager.LoadScene("Result")); 
     }
