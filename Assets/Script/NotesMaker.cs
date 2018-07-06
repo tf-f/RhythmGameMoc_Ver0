@@ -57,8 +57,7 @@ public class NotesMaker : MonoBehaviour
         //終了処理
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            WriteNotesTiming(99);
-            SceneManager.LoadScene("HOME");
+            SceneManager.LoadScene("Home");
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !_isPlaying)

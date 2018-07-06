@@ -16,8 +16,10 @@ public class GameManage : MonoBehaviour
     const int BAD_N = 30;
 
     private int totalnotes;
+
     public GameObject StartButton;
     public bool done = false;
+    
     //効果Effect
     public GameObject Perfect;
     public GameObject Great;
@@ -52,12 +54,12 @@ public class GameManage : MonoBehaviour
     public static bool _fullcombo;
 
     private float _startTime = 0;
-    public int _notesCount = 0;
-    public int[] _lineNum;
 
+    public int _notesCount = 0;
     public string filePass;
-    public float[] _timing;
-    private int[] _Line_Num;
+    public int[] _lineNum;
+    private float[] _timing;
+    public int[] _Line_Num;
     public int[] _Now_Line_Num;
 
     public GameObject[] notes;
@@ -93,12 +95,12 @@ public class GameManage : MonoBehaviour
         //各値の初期化
         _fullcombo = false;
         totalnotes = 0;
-        speed = 0f;
+        speed = 1.0f;
         score = 0;
         life = 40;
         percent = 0.0f;
         //time = 0;
-        dif = 0.0f;
+        dif = 2.0f;
         combo = 0;
         combo_max = 0;
         perfect_all = 0;
@@ -113,8 +115,13 @@ public class GameManage : MonoBehaviour
 
         //は？
         //生成されたノーツとジャッジ対象の参照用
-        _Line_Num = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        _Now_Line_Num = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        _Line_Num = new int[20];
+        _Now_Line_Num = new int[20];
+        for(int i = 0; i < 20; i++)
+        {
+            _Line_Num[i] = 0;
+            _Now_Line_Num[i] = 1;
+        }
 
         _active = false;
 
@@ -131,6 +138,12 @@ public class GameManage : MonoBehaviour
         if(combo_max< combo)
         {
             combo_max = combo;
+        }
+        if(life < 0)
+        {
+            life = 0;
+            _active = false;
+            End();
         }
         if (_active)
         {
@@ -164,6 +177,11 @@ public class GameManage : MonoBehaviour
         }
 
         //強制終了
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _active = false;
+            SceneManager.LoadScene("Home");
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -181,7 +199,7 @@ public class GameManage : MonoBehaviour
 
     void CheckNextNotes()
     {
-        while (_timing[_notesCount] + Dif < GetMusicTime() && _timing[_notesCount] != 0)
+        while (_timing[_notesCount] + Dif <= GetMusicTime() && _timing[_notesCount] != 0)
         {
             _Line_Num[_lineNum[_notesCount]]++; //初期ノーツ生成時の管理番号の取得用
             SpawnNotes(_lineNum[_notesCount]);
@@ -192,21 +210,22 @@ public class GameManage : MonoBehaviour
 
     void SpawnNotes(int num)
     {
+        Debug.Log(num);
         // 終了処理
         float pdif = 0.0f;
         float alpha = 0.0f;
         switch (num)
         {
-            case 0:
+            case 1:
                 pdif = 0;
                 break;
-            case 1:
+            case 2:
                 pdif = 1.8f;
                 break;
-            case 2:
+            case 3:
                 pdif = 6.0f;
                 break;
-            case 3:
+            case 4:
                 pdif = 7.8f;
                 break;
             default:
@@ -226,9 +245,10 @@ public class GameManage : MonoBehaviour
 
         }
 
-        Instantiate(notes[num],
-            new Vector3(-7.4f + pdif, 5.0f+alpha, -0.3f),
-            Quaternion.identity);     //Vector修正
+        Instantiate(notes[num]);
+        //,            new Vector3(-7.4f + pdif, 5.0f+alpha, -2.6f),
+        //    Quaternion.identity);     //Vector修正
+        //,//            new Vector3(0,0,0),
     
     }
 
@@ -244,7 +264,7 @@ public class GameManage : MonoBehaviour
             //Music_all[Base.MusicNumber].Play();
            
             audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
-            audioSource.volume = 0.2f;
+            audioSource.volume = 0.05f;
         }
         catch {
             Debug.Log("Audio failed!");
@@ -290,8 +310,8 @@ public class GameManage : MonoBehaviour
     //ノーツの二重処理防止
     public int Now_Notes(int line_num)
     {
-        //後で調整
-        return _Line_Num[line_num++];
+        //後で調整???
+        return _Line_Num[line_num];
     }
 
     //Speed調整プロパティ
@@ -342,7 +362,7 @@ public class GameManage : MonoBehaviour
             else if (value + life <= 0)
             {
                 life = 0;
-                End();
+                _active = false;
             }
             else
             {
@@ -364,7 +384,7 @@ public class GameManage : MonoBehaviour
     //終了処理
     private void End()
     {
-        done = false;
+        _active = false;
         if (life == 0)
         {
             Instantiate(GameOver);
@@ -396,7 +416,7 @@ public class GameManage : MonoBehaviour
             mag += 0.25;
         }        
         score += (int)((x * mag) /10) * 10;
-    }
+    } 
 
 
     //効果表示,加算用
@@ -455,7 +475,7 @@ public class GameManage : MonoBehaviour
         ScoreUpdate(BAD_N);
         Instantiate(Bad);
         bad_all++;
-        life -= 5;
+        life -= 2;
     }
     public void MissE()
     {
@@ -469,7 +489,7 @@ public class GameManage : MonoBehaviour
         combo = 0;
         Instantiate(Miss);
         miss_all++;
-        life -= 10;
+        life -= 5;
     }
 
     //Debug

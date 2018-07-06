@@ -754,5 +754,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb0bba8875c57e40965971ed4a28750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: CSV/Data
+  fileName: Resources/CSV/
   database: []

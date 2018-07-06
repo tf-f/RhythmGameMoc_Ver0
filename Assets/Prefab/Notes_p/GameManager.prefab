@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823704725276984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,18 +70,9 @@ MonoBehaviour:
   _eMiss: 0
   combo: 0
   _notesCount: 0
-  _lineNum: 000000000000000000000000000000000000000000000000000000000000000000000000
   filePass: 
-  _timing:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  _lineNum: 000000000000000000000000000000000000000000000000000000000000000000000000
+  _Line_Num: 
   _Now_Line_Num: 000000000000000000000000000000000000000000000000000000000000000000000000
   notes:
   - {fileID: 0}
@@ -93,22 +84,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Music_all:
-  - {fileID: 82591261760802074, guid: 79a0ab93e2f592949b15d69e635e8760, type: 2}
-  - {fileID: 82240538799044636, guid: e02f0971089caa04c9dc42f632275eac, type: 2}
-  - {fileID: 82446504126545682, guid: 6052390bfa3525d44bcecd3e051c0876, type: 2}
-  - {fileID: 82189821043108352, guid: 35ac3bf5c7ff47e4685b557cafb867dc, type: 2}
-  - {fileID: 82646878303555604, guid: 97f0400944f5eb94cad09db80637ee94, type: 2}
-  - {fileID: 82182236908912136, guid: ffef3cfa9e29c5746b18479442c3f114, type: 2}
-  - {fileID: 82736128118451230, guid: 23bc29c3d419d2440a64dea85100255c, type: 2}
-  - {fileID: 82339008426861052, guid: d39bdb37eeac2454d810a998aee8c1c2, type: 2}
-  - {fileID: 82473292023859390, guid: 4e50bd7422b326d4a86b1fcd55d5d7ce, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  audioClip: []
   _active: 0
 --- !u!114 &114486045486045116
 MonoBehaviour:

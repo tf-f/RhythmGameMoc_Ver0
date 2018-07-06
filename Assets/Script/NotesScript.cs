@@ -9,7 +9,7 @@ public class NotesScript : MonoBehaviour {
     //falseなら単発 trueなら長押し
     //const
     public int Mode;      //長押し、単発
-    private int Line_num; //lane
+    public int Line_num = 0; //lane
     
     // テスト後private !!!
     public float timer;
@@ -21,7 +21,7 @@ public class NotesScript : MonoBehaviour {
     public bool _Bad = false;
   
     //public GameObject objects;
-    public GameObject gm;
+    public GameManage gm;
      
     private float DIF = 0.0f;
     private float SPEED = 1.0f;
@@ -30,10 +30,11 @@ public class NotesScript : MonoBehaviour {
 
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManage>();
         _active = false;
         //生成時,初回のみ適応とする
-        DIF = gm.GetComponent<GameManage>().Dif;
-        SPEED = gm.GetComponent<GameManage>().Speed;
+        SPEED = gm.Speed;
+        DIF = gm.SpDf(SPEED);
         timer = 0f;
 
         //double attack
@@ -42,19 +43,23 @@ public class NotesScript : MonoBehaviour {
         _Good = false;
         _Bad = false;
 
-        Line_num = gm.GetComponent<GameManage>().Now_Notes(LINE);
+        //Debug.Log(Line_num + " " + LINE);
+        Line_num = gm.Now_Notes(LINE);
+        //Line_num = gm.Now_Notes(LINE);
 
 
     }
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
+        this.transform.position += Vector3.down * SPEED * Time.deltaTime * 5;
+        
         //Lifeが0になった時の強制終了処理
-        if(gm.GetComponent<GameManage>().done == false)// || this.transform.position.y <= -3.9f)
+        if(gm._active == false)// || this.transform.position.y <= -3.9f)
         {
             Deth();
         }
-        this.transform.position += Vector3.down * SPEED * Time.deltaTime * 5;
+
 
         //いるかこれ？
         if(true)
@@ -98,12 +103,12 @@ public class NotesScript : MonoBehaviour {
             _Great = false;
             _Good = false;
             _Bad = false;
-            gm.GetComponent<GameManage>().MissE();
+            gm.MissE();
             Deth();
         }
 
         //detect key judge
-        if( Line_num == gm.GetComponent<GameManage>()._Now_Line_Num[LINE] && _active)
+        if( Line_num == gm._Now_Line_Num[LINE] && gm._active)
         {
             switch(LINE)
             {
@@ -177,34 +182,34 @@ public class NotesScript : MonoBehaviour {
         //タップ音とかも追加
         if (_Perfect)
         {
-            gm.GetComponent<GameManage>().PerfectE();
+            gm.PerfectE();
             Deth();
         }
         else if (_Great)
         {
-            gm.GetComponent<GameManage>().GreatE();
+            gm.GreatE();
             Deth();
         }
         else if (_Good)
         {
-            gm.GetComponent<GameManage>().GoodE();
+            gm.GoodE();
             Deth();
         }
         else if (_Bad)
         {
-            gm.GetComponent<GameManage>().BadE();
+            gm.BadE();
             Deth();
         }
         else
         {
-            gm.GetComponent<GameManage>().Life-=1;
+            gm.Life-=1;
         }
     }
 
     void Deth()
     {
         //Update Notes now Number
-        gm.GetComponent<GameManage>()._Now_Line_Num[LINE]++;
+        gm._Now_Line_Num[LINE]++;
         Destroy(this.gameObject);
     }
 }
