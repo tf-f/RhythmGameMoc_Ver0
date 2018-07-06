@@ -5,5 +5,5 @@ Temp
 *.sln
 *.userprefs
 *.lock
-*.mp3
-*.wmv
+.mp3
+.wmv
