@@ -55,12 +55,12 @@ public class UI_script : MonoBehaviour {
             if (life_ > GameManage.life)
             {
                 life_--;
-                LIFE.text = life_.ToString()+"%";
+                LIFE.text = life_.ToString()+" %";
             }
             else
             {
                 life_++;
-                LIFE.text = life_.ToString()+"%";
+                LIFE.text = life_.ToString()+" %";
             }
 
         }
