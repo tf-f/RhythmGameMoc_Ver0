@@ -83,6 +83,7 @@ public class GameManage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Debug.Log("start");
         audioSource = gameObject.AddComponent<AudioSource>();
 
         //Music_all = gameObject.GetComponents<AudioSource>();
@@ -244,7 +245,7 @@ public class GameManage : MonoBehaviour
         }
         catch {
             Debug.Log("Audio failed!");
-            SceneManager.LoadScene("Error");
+            //SceneManager.LoadScene("Error");
         }
         _active = true;
     }
@@ -277,7 +278,7 @@ public class GameManage : MonoBehaviour
         catch
         {
             Debug.Log("CSV Load failed");
-            SceneManager.LoadScene("Error");
+            //SceneManager.LoadScene("Error");
         }
         totalnotes = i;
         
@@ -379,8 +380,8 @@ public class GameManage : MonoBehaviour
         //Wait for 2Second
         //Using UniRx
         Debug.Log("Finish! GameOver");
-        Observable.Timer(TimeSpan.FromMilliseconds(2000))
-              .Subscribe(_ => SceneManager.LoadScene("Result")); 
+        //Observable.Timer(TimeSpan.FromMilliseconds(2000))
+         //     .Subscribe(_ => SceneManager.LoadScene("Result")); 
     }
 
     //スコア加算 ！比率調整
