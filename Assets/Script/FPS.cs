@@ -5,34 +5,39 @@ using UnityEngine.UI;
 
 public class FPS : MonoBehaviour
 {
-    int frameCount;
-    float prevTime;
     public Text SHOWFPS;
-    
+    float time;
 
     void Start()
     {
-        frameCount = 0;
-        prevTime = 0.0f;
+        time = 0;
     }
 
     void Update()
     {
         //どっちか  
         float fps = 1f / Time.deltaTime;
+        time += Time.deltaTime;
+        if (time >= 3.0f)
+        {
+            time = 0;
+            SHOWFPS.text ="FPS: " + (((int)(fps*10))/10.0).ToString();
+        }
+
+    }
+}
+/*
+    int frameCount;
+    float prevTime;
+        frameCount = 0;
+        prevTime = 0.0f;
+            Debug.LogFormat("{0}fps", frameCount / time);
+
+            frameCount = 0;
         Debug.LogFormat("{0}fps", fps);
 
         ++frameCount;
         float time = Time.realtimeSinceStartup - prevTime;
 
-        if (time >= 3.0f)
-        {
-            Debug.LogFormat("{0}fps", frameCount / time);
-
-            frameCount = 0;
             prevTime = Time.realtimeSinceStartup;
-        }
-
-        SHOWFPS.text ="FPS: " + (((int)(fps*10))/10.0).ToString();
-    }
-}
+            */

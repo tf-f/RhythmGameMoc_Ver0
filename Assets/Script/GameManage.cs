@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UniRx;
@@ -117,7 +118,7 @@ public class GameManage : MonoBehaviour
 
         _active = false;
 
-        filePass = Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
+        filePass = filePass + Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
         LoadCSV();
 
 
@@ -241,7 +242,9 @@ public class GameManage : MonoBehaviour
             // GetComponent<AudioSource>().clip = Music_all[Base.MusicNumber];
             // GetComponent<AudioSource>().Play();
             //Music_all[Base.MusicNumber].Play();
+           
             audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
+            audioSource.volume = 0.5f;
         }
         catch {
             Debug.Log("Audio failed!");
@@ -256,9 +259,9 @@ public class GameManage : MonoBehaviour
         int i = 0, j;
 
         TextAsset csv = Resources.Load(filePass) as TextAsset;
+        Debug.Log("CSV Loading" + csv);
         try
         {
-            Debug.Log("CSV Loading");
             StringReader reader = new StringReader(csv.text);
             while (reader.Peek() > -1)
             {

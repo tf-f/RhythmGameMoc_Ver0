@@ -792,6 +792,26 @@ Prefab:
       propertyPath: gm
       value: 
       objectReference: {fileID: 942321533}
+    - target: {fileID: 114100847533086004, guid: 389de9f61d3c94147a6a2e4a545da988,
+        type: 2}
+      propertyPath: tap
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a8622ea961c10242952a21e2d97fec7, type: 3}
+    - target: {fileID: 114100847533086004, guid: 389de9f61d3c94147a6a2e4a545da988,
+        type: 2}
+      propertyPath: Great_Tap
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a6c6ac8608feae4ba4445820b6ae462, type: 3}
+    - target: {fileID: 114100847533086004, guid: 389de9f61d3c94147a6a2e4a545da988,
+        type: 2}
+      propertyPath: Perfect_Tap
+      value: 
+      objectReference: {fileID: 8300000, guid: 59c283324e10cfd4c973147f9dcde7d4, type: 3}
+    - target: {fileID: 114100847533086004, guid: 389de9f61d3c94147a6a2e4a545da988,
+        type: 2}
+      propertyPath: Bad_Tap
+      value: 
+      objectReference: {fileID: 8300000, guid: f1a3fe213d112994db05b62ee888f2e1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 389de9f61d3c94147a6a2e4a545da988, type: 2}
   m_IsPrefabParent: 0
@@ -972,7 +992,7 @@ Prefab:
     - target: {fileID: 114085369204996454, guid: 747098e10e331c24ea94ff6097078239,
         type: 2}
       propertyPath: filePass
-      value: /CSV/Data
+      value: CSV/Data
       objectReference: {fileID: 0}
     - target: {fileID: 114085369204996454, guid: 747098e10e331c24ea94ff6097078239,
         type: 2}

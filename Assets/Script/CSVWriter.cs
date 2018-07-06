@@ -13,7 +13,7 @@ public class CSVWriter : MonoBehaviour
         try
         {
 
-            fileName = Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
+            fileName = fileName + Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
 
         }
         catch
