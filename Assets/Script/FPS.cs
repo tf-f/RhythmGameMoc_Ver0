@@ -25,7 +25,7 @@ public class FPS : MonoBehaviour
         ++frameCount;
         float time = Time.realtimeSinceStartup - prevTime;
 
-        if (time >= 0.5f)
+        if (time >= 3.0f)
         {
             Debug.LogFormat("{0}fps", frameCount / time);
 
