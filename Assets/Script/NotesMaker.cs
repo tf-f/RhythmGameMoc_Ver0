@@ -24,13 +24,15 @@ public class NotesMaker : MonoBehaviour
 
     private bool _isPlaying = false;
     public GameObject startButton;
-
+    public bool DEBUG = false;
     public float[] note_time;
     float dtm = 0;
     bool de = false;
     // Use this for initialization
     void Start()
     {
+        //DEBUG = false;
+        DEBUG = true;
         de = true;
         dtm = 0f;
         //AS = GetComponent<AudioSource>();
@@ -98,11 +100,18 @@ public class NotesMaker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         // キーの設定
         {
-            note_time[0] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(0);
+            }
+            else
+            {
+                note_time[0] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (GetTiming() - note_time[0] >= L_Notes)
+            if (GetTiming() - note_time[0] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(10);
             }
@@ -116,11 +125,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            note_time[1] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(1);
+            }
+            else
+            {
+                note_time[1] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
-            if (GetTiming() - note_time[1] >= L_Notes)
+            if (GetTiming() - note_time[1] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(11);
             }
@@ -134,11 +150,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            note_time[2] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(2);
+            }
+            else
+            {
+                note_time[2] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.V))
         {
-            if (GetTiming() - note_time[2] >= L_Notes) { 
+            if (GetTiming() - note_time[2] >= L_Notes && !DEBUG) { 
                 WriteNotesTiming(12);
             }
             else
@@ -148,13 +171,20 @@ public class NotesMaker : MonoBehaviour
             note_time[2] = 0;
         }
 
-        
+
         if (Input.GetKeyDown(KeyCode.N))
         {
-            note_time[3] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(3);
+            }
+            else
+            {
+                note_time[3] = GetTiming();
+            }
         }
         if(Input.GetKeyUp(KeyCode.N)){
-            if (GetTiming() - note_time[3] >= L_Notes)
+            if (GetTiming() - note_time[3] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(13);
             }
@@ -168,11 +198,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-            note_time[4] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(4);
+            }
+            else
+            {
+                note_time[4] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.M))
         {
-            if(GetTiming() - note_time[4] >= L_Notes)
+            if(GetTiming() - note_time[4] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(14);
             }
@@ -186,11 +223,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            note_time[5] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(5);
+            }
+            else
+            {
+                note_time[5] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if(GetTiming() - note_time[5] >= L_Notes)
+            if(GetTiming() - note_time[5] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(15);
             }
@@ -204,11 +248,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            note_time[6] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(6);
+            }
+            else
+            {
+                note_time[6] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            if (GetTiming() - note_time[6] >= L_Notes)
+            if (GetTiming() - note_time[6] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(16);
             }
@@ -222,11 +273,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            note_time[7] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(7);
+            }
+            else
+            {
+                note_time[7] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            if (GetTiming() - note_time[7] >= L_Notes)
+            if (GetTiming() - note_time[7] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(17);
             }
@@ -239,11 +297,18 @@ public class NotesMaker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            note_time[8] = GetTiming();
+            if (DEBUG)
+            {
+                WriteNotesTiming(8);
+            }
+            else
+            {
+                note_time[8] = GetTiming();
+            }
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            if (GetTiming() - note_time[8] >= L_Notes)
+            if (GetTiming() - note_time[8] >= L_Notes && !DEBUG)
             {
                 WriteNotesTiming(18);
             }
