@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Effect\GameOver.cs" />
     <Compile Include="Assets\Prefab\Effect_p\Del_Effect.cs" />
     <Compile Include="Assets\Script\Back_Line.cs" />
     <Compile Include="Assets\Script\Base.cs" />

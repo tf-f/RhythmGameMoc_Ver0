@@ -33,21 +33,21 @@ public class UI_script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (gm.GetComponent<GameManage>().Speed == 0)
+        if (gm.GetComponent<GameManage>().Speed - 1.0f == 0)
         {
             SPEED.text = "±0.0";
         }
         else
         {
-            SPEED.text = gm.GetComponent<GameManage>().Speed.ToString();
+            SPEED.text = "SPEED" + ( gm.GetComponent<GameManage>().Speed - 1.0f ).ToString();
         }
 
-        COMBO.text = gm.GetComponent<GameManage>().combo.ToString();
-        COMBO_MAX.text = GameManage.combo_max.ToString();
+        COMBO.text = "Combo: " + gm.GetComponent<GameManage>().combo.ToString();
+        COMBO_MAX.text = "MaxCombo: " + GameManage.combo_max.ToString();
         while (GameManage.score < score_)
         {
             score_+= 10;
-            SCORE.text = score_.ToString();
+            SCORE.text ="Score: " + score_.ToString();
         }
 
         while(GameManage.life != life_)

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872368055131718}
   - component: {fileID: 212925929929297162}
+  - component: {fileID: 114114990199209418}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114114990199209418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210071940527336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a043c3d127c60f546873b75cb2d32b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!212 &212925929929297162
 SpriteRenderer:
   m_ObjectHideFlags: 1
