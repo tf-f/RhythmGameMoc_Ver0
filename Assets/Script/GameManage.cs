@@ -191,19 +191,19 @@ public class GameManage : MonoBehaviour
         }
 
         //その他調整など
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             Speed = speed + 0.1f;// + 0.1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        { 
             Speed = speed - 0.1f;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Dif = dif + 0.1f;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Dif = dif - 0.1f;
         }
@@ -319,7 +319,7 @@ public class GameManage : MonoBehaviour
         }
         catch {
             Debug.Log("Audio failed!");
-            //SceneManager.LoadScene("Error");
+            SceneManager.LoadScene("Error");
         }
     }
 
@@ -351,7 +351,7 @@ public class GameManage : MonoBehaviour
         catch
         {
             Debug.Log("CSV Load failed");
-            //SceneManager.LoadScene("Error");
+            SceneManager.LoadScene("Error");
         }
         totalnotes = i;
         
