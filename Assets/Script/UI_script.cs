@@ -44,7 +44,7 @@ public class UI_script : MonoBehaviour {
 
         COMBO.text = "Combo: " + gm.GetComponent<GameManage>().combo.ToString();
         COMBO_MAX.text = "MaxCombo: " + GameManage.combo_max.ToString();
-        while (GameManage.score < score_)
+        while (GameManage.score > score_)
         {
             score_+= 10;
             SCORE.text ="Score: " + score_.ToString();

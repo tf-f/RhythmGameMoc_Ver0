@@ -1059,6 +1059,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114085369204996454, guid: 747098e10e331c24ea94ff6097078239,
         type: 2}
+      propertyPath: _Line_Num.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114085369204996454, guid: 747098e10e331c24ea94ff6097078239,
+        type: 2}
       propertyPath: _Now_Line_Num.Array.size
       value: 0
       objectReference: {fileID: 0}

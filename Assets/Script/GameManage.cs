@@ -293,9 +293,8 @@ public class GameManage : MonoBehaviour
 
         */
 
-        Instantiate(notes[num]);
+        Instantiate(notes[num], notes[num].transform.position,notes[num].transform.rotation);     //Vector修正
         //,            new Vector3(-7.4f + pdif, 5.0f+alpha, -2.6f),
-        //    Quaternion.identity);     //Vector修正
         //,//            new Vector3(0,0,0),
     
     }
