@@ -328,7 +328,7 @@ public class NotesMaker : MonoBehaviour
     {
         Debug.Log(GetTiming());
         if(DEBUG){
-            _CSVWriter.WriteCSV((note_time[num]).ToString() + "," + num.ToString());
+            _CSVWriter.WriteCSV(GetTiming().ToString() + "," + num.ToString());
         }else{
             if (num < 10)
             {

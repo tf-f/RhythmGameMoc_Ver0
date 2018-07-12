@@ -306,12 +306,20 @@ public class GameManage : MonoBehaviour
         StartButton.SetActive(false);
         _startTime = Time.time;
         _active = true;
-        try{
+        try
+        {
             // GetComponent<AudioSource>().clip = Music_all[Base.MusicNumber];
             // GetComponent<AudioSource>().Play();
             //Music_all[Base.MusicNumber].Play();
-            audioSource.volume = 0.05f;
-          
+            switch (Base.MusicNumber)
+            {
+                case 0:
+                    audioSource.volume = 0.05f;
+                    break;
+                default:
+                    audioSource.volume = 0.50f;
+                    break;
+            }
 
             audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
             //audioSource.Pause();
