@@ -10,6 +10,7 @@ public class FPS : MonoBehaviour
 
     void Start()
     {
+        SHOWFPS.text = "FPS: 60.0";
         time = 0;
     }
 

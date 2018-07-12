@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Select_home : MonoBehaviour {
     public int HOMEselect = 0;
@@ -14,6 +15,7 @@ public class Select_home : MonoBehaviour {
         Base.SetMode = false; //再帰復帰時の初期化
         HOMEselect = 0;
         Setcase = 0;
+        Button_Reset_Color();
 
     }
 
@@ -31,6 +33,7 @@ public class Select_home : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 HOMEselect++;
+                Button_Reset_Color();
             }
         }
         if (HOMEselect > 0)
@@ -38,6 +41,7 @@ public class Select_home : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 HOMEselect--;
+                Button_Reset_Color();
             }
         }
 
@@ -67,6 +71,17 @@ public class Select_home : MonoBehaviour {
                     break;
             }
         }
+
+
+    }
+
+    private void Button_Reset_Color()
+    {
+        for (int i = 0; i < Button.Length; i++)
+        {
+            Button[i].GetComponent<Image>().color = Color.white;
+        }
+        Button[HOMEselect].GetComponent<Image>().color = Color.yellow;
     }
 
     private void Button_Reset_ALL()
@@ -86,18 +101,21 @@ public class Select_home : MonoBehaviour {
 
     public void Select_Music()
     {
+        Button_Reset_Color();
         Button_Reset_ALL();
         SceneManager.LoadScene("SelectMusic");
     }
 
     public void Show_Result()
     {
+        Button_Reset_Color();
         Button_Reset_ALL();
         SceneManager.LoadScene("Results_all");
     }
 
     public void GameEnd()
     {
+        Button_Reset_Color();
         Button_Reset_ALL();
         Application.Quit();
     }

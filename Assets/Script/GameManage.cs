@@ -15,6 +15,9 @@ public class GameManage : MonoBehaviour
     const int GOOD_N = 100;
     const int BAD_N = 30;
 
+    //Debug Life制限なし
+    public bool DB = false;
+
     private int totalnotes;
 
     public GameObject StartButton;
@@ -82,10 +85,13 @@ public class GameManage : MonoBehaviour
     public List<AudioClip> audioClip = new List<AudioClip>();
 
     public bool _active = false;
-
+    public bool instanted_GameOver = false;
+    public bool finish = false;
     // Use this for initialization
     void Start()
     {
+        DB = false;
+        _startTime = 0f;
         Debug.Log("start");
         audioSource = gameObject.AddComponent<AudioSource>();
 
@@ -100,7 +106,7 @@ public class GameManage : MonoBehaviour
         life = 40;
         percent = 0.0f;
         //time = 0;
-        dif = 0.0f;
+        dif = 2.0f;
         combo = 0;
         combo_max = 0;
         perfect_all = 0;
@@ -124,6 +130,8 @@ public class GameManage : MonoBehaviour
         }
 
         _active = false;
+        instanted_GameOver = false;
+        finish = false;
 
         filePass = filePass + Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
         LoadCSV();
@@ -134,6 +142,22 @@ public class GameManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            DB = true;
+        }
+        if (DB)
+        {
+            Life = 100;
+        }
+
+        
+        if(!_active && !instanted_GameOver && finish)
+        {
+            End();
+        }
+        
+
         //各スコアなどのUI 更新
         if(combo_max< combo)
         {
@@ -167,19 +191,19 @@ public class GameManage : MonoBehaviour
         }
 
         //その他調整など
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             Speed = speed + 0.1f;// + 0.1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        { 
             Speed = speed - 0.1f;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Dif = dif + 0.1f;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Dif = dif - 0.1f;
         }
@@ -193,6 +217,18 @@ public class GameManage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        try{
+            if (_startTime != 0 && GetMusicTime() >= 1.5f)
+            {
+                audioSource.UnPause();
+            }
+        }
+        catch
+        {
+
+
         }
 
 
@@ -257,9 +293,8 @@ public class GameManage : MonoBehaviour
 
         */
 
-        Instantiate(notes[num]);
+        Instantiate(notes[num], notes[num].transform.position,notes[num].transform.rotation);     //Vector修正
         //,            new Vector3(-7.4f + pdif, 5.0f+alpha, -2.6f),
-        //    Quaternion.identity);     //Vector修正
         //,//            new Vector3(0,0,0),
     
     }
@@ -276,13 +311,15 @@ public class GameManage : MonoBehaviour
             // GetComponent<AudioSource>().Play();
             //Music_all[Base.MusicNumber].Play();
             audioSource.volume = 0.05f;
-            Observable.Timer(TimeSpan.FromMilliseconds(2000))
-              .Subscribe(_ =>
-            audioSource.PlayOneShot(audioClip[Base.MusicNumber]));
+          
+
+            audioSource.PlayOneShot(audioClip[Base.MusicNumber]);
+            //audioSource.Pause();
+            //audioSource.PlayDelayed(2.0f);
         }
         catch {
             Debug.Log("Audio failed!");
-            //SceneManager.LoadScene("Error");
+            SceneManager.LoadScene("Error");
         }
     }
 
@@ -314,7 +351,7 @@ public class GameManage : MonoBehaviour
         catch
         {
             Debug.Log("CSV Load failed");
-            //SceneManager.LoadScene("Error");
+            SceneManager.LoadScene("Error");
         }
         totalnotes = i;
         
@@ -379,7 +416,14 @@ public class GameManage : MonoBehaviour
             }
             else
             {
-                life = value;
+                if (DB)
+                {
+                    life = 100;
+                }
+                else
+                {
+                    life = value;
+                }
             }
         }
     }
@@ -397,10 +441,12 @@ public class GameManage : MonoBehaviour
     //終了処理
     private void End()
     {
+
+        finish = true;
         _active = false;
-        if (life == 0)
+        if (life <= 0)
         {
-            Instantiate(GameOver);
+             Instantiate(GameOver);
         }
         else
         {
@@ -423,7 +469,7 @@ public class GameManage : MonoBehaviour
     //スコア加算 ！比率調整
     void ScoreUpdate(int x)
     {
-        double mag = 0.75;
+        double mag = 1.0;
         for(int i=combo; i > 0; i -= 50)
         {
             mag += 0.25;
