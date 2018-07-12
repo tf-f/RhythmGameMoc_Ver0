@@ -29,10 +29,12 @@ public class NotesMaker : MonoBehaviour
     float dtm = 0;
     bool de = false;
     // Use this for initialization
+
     void Start()
     {
         //DEBUG = false;
         DEBUG = true;
+        
         de = true;
         dtm = 0f;
         //AS = GetComponent<AudioSource>();
@@ -109,9 +111,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[0] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space)  && !DEBUG)
         {
-            if (GetTiming() - note_time[0] >= L_Notes && !DEBUG)
+            if (GetTiming() - note_time[0] >= L_Notes)
             {
                 WriteNotesTiming(10);
             }
@@ -134,9 +136,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[1] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C) && !DEBUG)
         {
-            if (GetTiming() - note_time[1] >= L_Notes && !DEBUG)
+            if (GetTiming() - note_time[1] >= L_Notes )
             {
                 WriteNotesTiming(11);
             }
@@ -159,9 +161,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[2] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.V))
+        if (Input.GetKeyUp(KeyCode.V) && !DEBUG)
         {
-            if (GetTiming() - note_time[2] >= L_Notes && !DEBUG) { 
+            if (GetTiming() - note_time[2] >= L_Notes) { 
                 WriteNotesTiming(12);
             }
             else
@@ -183,8 +185,8 @@ public class NotesMaker : MonoBehaviour
                 note_time[3] = GetTiming();
             }
         }
-        if(Input.GetKeyUp(KeyCode.N)){
-            if (GetTiming() - note_time[3] >= L_Notes && !DEBUG)
+        if(Input.GetKeyUp(KeyCode.N) && !DEBUG){
+            if (GetTiming() - note_time[3] >= L_Notes)
             {
                 WriteNotesTiming(13);
             }
@@ -207,9 +209,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[4] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M) && !DEBUG)
         {
-            if(GetTiming() - note_time[4] >= L_Notes && !DEBUG)
+            if(GetTiming() - note_time[4] >= L_Notes)
             {
                 WriteNotesTiming(14);
             }
@@ -232,9 +234,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[5] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && !DEBUG)
         {
-            if(GetTiming() - note_time[5] >= L_Notes && !DEBUG)
+            if(GetTiming() - note_time[5] >= L_Notes)
             {
                 WriteNotesTiming(15);
             }
@@ -257,9 +259,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[6] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        if ( (Input.GetKeyUp(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) )&& !DEBUG)
         {
-            if (GetTiming() - note_time[6] >= L_Notes && !DEBUG)
+            if (GetTiming() - note_time[6] >= L_Notes )
             {
                 WriteNotesTiming(16);
             }
@@ -282,9 +284,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[7] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.D))
+        if ((Input.GetKeyUp(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) ) && !DEBUG)
         {
-            if (GetTiming() - note_time[7] >= L_Notes && !DEBUG)
+            if (GetTiming() - note_time[7] >= L_Notes )
             {
                 WriteNotesTiming(17);
             }
@@ -306,9 +308,9 @@ public class NotesMaker : MonoBehaviour
                 note_time[8] = GetTiming();
             }
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if ((Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) ) && !DEBUG)
         {
-            if (GetTiming() - note_time[8] >= L_Notes && !DEBUG)
+            if (GetTiming() - note_time[8] >= L_Notes)
             {
                 WriteNotesTiming(18);
             }
@@ -325,16 +327,21 @@ public class NotesMaker : MonoBehaviour
     void WriteNotesTiming(int num)
     {
         Debug.Log(GetTiming());
-        if (num < 10)
-        {
-            _CSVWriter.WriteCSV(GetTiming().ToString() + "," + num.ToString());
-        }
-        else
-        {
-            _CSVWriter.WriteCSV((GetTiming() - note_time[num]).ToString() + "," + num.ToString());
-            _CSVWriter.WriteCSV(GetTiming().ToString() + "," + (num-10).ToString());
+        if(DEBUG){
+            _CSVWriter.WriteCSV((note_time[num]).ToString() + "," + num.ToString());
+        }else{
+            if (num < 10)
+            {
+                     _CSVWriter.WriteCSV((note_time[num]).ToString() + "," + num.ToString());
+            }
+            else
+            {
+                _CSVWriter.WriteCSV((note_time[num]).ToString() + "," + num.ToString());
+                _CSVWriter.WriteCSV(GetTiming().ToString() + "," + (num-10).ToString());
+            }
         }
     }
+
 
     float GetTiming()
     {
