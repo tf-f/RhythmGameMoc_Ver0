@@ -108,7 +108,7 @@ public class GameManage : MonoBehaviour
         //time = 0;
         
         ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-        dif = 2.0f;
+        dif = -2.1f;
 
 
         combo = 0;
@@ -354,8 +354,9 @@ public class GameManage : MonoBehaviour
                 {
                     _timing[i] = float.Parse(values[0]);
                     _lineNum[i] = int.Parse(values[1]);
-                    if(_timing[i] == 0)
+                    if(_timing[0] == 0)
                     {
+                        j--;
                         i--;
                     }
                 }
