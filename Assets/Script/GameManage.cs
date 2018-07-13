@@ -22,7 +22,7 @@ public class GameManage : MonoBehaviour
 
     public GameObject StartButton;
     public bool done = false;
-    
+
     //効果Effect
     public GameObject Perfect;
     public GameObject Great;
@@ -48,6 +48,8 @@ public class GameManage : MonoBehaviour
     //private int time = 0;
     private float dif = 0.0f;
     public int combo;
+
+    //Scene継承
     public static int combo_max;
     public static int perfect_all = 0;
     public static int great_all = 0;
@@ -75,11 +77,11 @@ public class GameManage : MonoBehaviour
      * 6 Center right
      * 7 Center up
      * 8 Center down
-     * 
+     *
      * if+10
      * LongNotes;
-     *     
-     * 
+     *
+     *
      */
     AudioSource audioSource;
     public List<AudioClip> audioClip = new List<AudioClip>();
@@ -106,7 +108,7 @@ public class GameManage : MonoBehaviour
         life = 40;
         percent = 0.0f;
         //time = 0;
-        
+
         ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
         dif = -2.1f;
 
@@ -155,12 +157,12 @@ public class GameManage : MonoBehaviour
             Life = 100;
         }
 
-        
+
         if(!_active && !instanted_GameOver && finish)
         {
             End();
         }
-        
+
 
         //各スコアなどのUI 更新
         if(combo_max< combo)
@@ -200,7 +202,7 @@ public class GameManage : MonoBehaviour
             Speed = speed + 0.1f;// + 0.1;
         }
         if (Input.GetKeyDown(KeyCode.Alpha8))
-        { 
+        {
             Speed = speed - 0.1f;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -260,7 +262,7 @@ public class GameManage : MonoBehaviour
     {
         Debug.Log(num);
         // 終了処理
-        
+
         /*
                  float pdif = 0.0f;
         float alpha = 0.0f;
@@ -300,7 +302,7 @@ public class GameManage : MonoBehaviour
         Instantiate(notes[num], notes[num].transform.position,notes[num].transform.rotation);     //Vector修正
         //,            new Vector3(-7.4f + pdif, 5.0f+alpha, -2.6f),
         //,//            new Vector3(0,0,0),
-    
+
     }
 
 
@@ -370,7 +372,7 @@ public class GameManage : MonoBehaviour
             SceneManager.LoadScene("Error");
         }
         totalnotes = i;
-        
+
     }
 
     //ノーツの二重処理防止
@@ -453,7 +455,7 @@ public class GameManage : MonoBehaviour
         }
         return false;
     }
-    
+
     //終了処理
     private void End()
     {
@@ -471,7 +473,7 @@ public class GameManage : MonoBehaviour
             {
                 _fullcombo = true;
                 Instantiate(FullCombo);
-              
+
             }
         }
 
@@ -479,7 +481,7 @@ public class GameManage : MonoBehaviour
         //Using UniRx
         Debug.Log("Finish! GameOver");
         //Observable.Timer(TimeSpan.FromMilliseconds(2000))
-         //     .Subscribe(_ => SceneManager.LoadScene("Result")); 
+         //     .Subscribe(_ => SceneManager.LoadScene("Result"));
     }
 
     //スコア加算 ！比率調整
@@ -489,9 +491,9 @@ public class GameManage : MonoBehaviour
         for(int i=combo; i > 0; i -= 50)
         {
             mag += 0.25;
-        }        
+        }
         score += (int)((x * mag) /10) * 10;
-    } 
+    }
 
 
     //効果表示,加算用
@@ -578,7 +580,7 @@ public class GameManage : MonoBehaviour
     //ノーツ速度に対するジャッジタイミングの調整
     ///
     /// !!!!!!!!!! 要調整  !!!!!!!!!!!!!!!!!!!!!!
-    ///    
+    ///
     public float SpDf(float x)
     {
         return (1 - x)*0.8f;

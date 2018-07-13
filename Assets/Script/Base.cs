@@ -13,6 +13,9 @@ public class Base : MonoBehaviour {
     //
     public static int MMM;
 
+    public static int[] scores;
+    
+
 
     //譜面作成、モードの切り替え
     public static bool SetMode = false; //false PlayGame true MakeGame
@@ -20,14 +23,15 @@ public class Base : MonoBehaviour {
     void Start()
     {
         SetMode = false;
+        scores = new int[20];
     }
     void Update()
     {
-      
+
 
     }
     string Names(int i){
-        
+
         return "a";
     }
 
