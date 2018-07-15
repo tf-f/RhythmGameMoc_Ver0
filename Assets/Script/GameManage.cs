@@ -173,11 +173,13 @@ public class GameManage : MonoBehaviour
         {
             combo_max = combo;
         }
-        if(life < 0)
+
+        if (life < 0)
         {
             life = 0;
             _active = false;
             End();
+
         }
         if(life > 100)
         {
@@ -484,8 +486,8 @@ public class GameManage : MonoBehaviour
         //Wait for 2Second
         //Using UniRx
         Debug.Log("Finish! GameOver");
-        //Observable.Timer(TimeSpan.FromMilliseconds(2000))
-         //     .Subscribe(_ => SceneManager.LoadScene("Result"));
+        Observable.Timer(TimeSpan.FromMilliseconds(2000))
+              .Subscribe(_ => SceneManager.LoadScene("Result"));
     }
 
     //スコア加算 ！比率調整
