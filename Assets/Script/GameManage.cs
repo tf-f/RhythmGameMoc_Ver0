@@ -47,9 +47,9 @@ public class GameManage : MonoBehaviour
     public static float percent = 0.0f;
     //private int time = 0;
     private float dif = 0.0f;
-    public int combo;
 
     //Scene継承
+    public static int combo;
     public static int combo_max;
     public static int perfect_all = 0;
     public static int great_all = 0;
@@ -148,6 +148,10 @@ public class GameManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene("Result");
+        }
         if (Input.GetKeyDown(KeyCode.D))
         {
             DB = true;

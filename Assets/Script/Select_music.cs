@@ -26,7 +26,8 @@ public class Select_music : MonoBehaviour {
 
 	void Start () {
         Button_Level_True();
-        Levels_Button[0].GetComponent<Image>().color = Color.yellow;
+        Music_Button[Base.MusicNumber].GetComponent<Image>().color = Color.yellow;
+        Levels_Button[Base.MusicLevel].GetComponent<Image>().color = Color.yellow;
         Base.MusicLevel = 0;
         Base.MusicNumber = 0;
         //select_level = false;

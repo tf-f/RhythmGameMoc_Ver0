@@ -26,7 +26,7 @@ public class UI_script : MonoBehaviour {
 
         SCORE.text = score_.ToString();
         LIFE.text = life_.ToString();
-        COMBO.text = gm.GetComponent<GameManage>().combo.ToString();
+        COMBO.text = GameManage.combo.ToString();
         COMBO_MAX.text = GameManage.combo_max.ToString();
 
 	}
@@ -42,7 +42,7 @@ public class UI_script : MonoBehaviour {
             SPEED.text = "SPEED" + ( gm.GetComponent<GameManage>().Speed - 1.0f ).ToString();
         }
 
-        COMBO.text = "Combo: " + gm.GetComponent<GameManage>().combo.ToString();
+        COMBO.text = "Combo: " + GameManage.combo.ToString();
         COMBO_MAX.text = "MaxCombo: " + GameManage.combo_max.ToString();
         while (GameManage.score > score_)
         {
