@@ -223,7 +223,7 @@ public class NotesMaker : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (DEBUG)
             {
