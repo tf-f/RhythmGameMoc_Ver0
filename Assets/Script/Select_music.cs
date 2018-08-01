@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Select_music : MonoBehaviour {
 
-    const int TOTALMUSIC = 15;
+    const int TOTALMUSIC = 8;
     const int LEVEL = 5;
 
     private int count = 0;
@@ -28,8 +28,8 @@ public class Select_music : MonoBehaviour {
         Button_Level_True();
         Music_Button[Base.MusicNumber].GetComponent<Image>().color = Color.yellow;
         Levels_Button[Base.MusicLevel].GetComponent<Image>().color = Color.yellow;
-        Base.MusicLevel = 0;
-        Base.MusicNumber = 0;
+        //Base.MusicLevel = 0;
+        //Base.MusicNumber = 0;
         //select_level = false;
         count = 0;
         enable_select = true;
