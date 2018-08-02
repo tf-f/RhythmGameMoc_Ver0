@@ -20,7 +20,7 @@ public class Selecter_Select_Direction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)|| Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.L))
         {
             y = 51f;
             Observable.Return(Unit.Default)
@@ -29,7 +29,7 @@ public class Selecter_Select_Direction : MonoBehaviour {
             this.transform.position = new Vector3( 47 + 169 * Base.MusicLevel, y , z));
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.M))
         {
             Observable.Return(Unit.Default)
     .Delay(TimeSpan.FromMilliseconds(100))

@@ -21,11 +21,11 @@ public class ResultScript : MonoBehaviour {
 	void Start () {
         Music.text = "MusicName : " + Base.MusicNumber.ToString() + Base.MusicLevel.ToString();
 		MaxCombo.text = "MaxCombo : " + GameManage.combo_max.ToString();
-	    Perfect.text = "Perfect : " + GameManage.perfect_all.ToString();
-	    Great.text = "Great : " + GameManage.great_all.ToString();
-	    Good.text = "Good : " + GameManage.good_all.ToString();
-	    Bad.text = "Bad : " + GameManage.bad_all.ToString();
-	    Miss.text = "Miss : " + GameManage.miss_all.ToString();
+	    Perfect.text = GameManage.perfect_all.ToString();
+	    Great.text = GameManage.great_all.ToString();
+	    Good.text = GameManage.good_all.ToString();
+	    Bad.text = GameManage.bad_all.ToString();
+	    Miss.text = GameManage.miss_all.ToString();
         Score.text = "Total Score : " + GameManage.score.ToString();
 		WriteResult();
 

@@ -52,7 +52,7 @@ public class Select_music : MonoBehaviour {
             SceneManager.LoadScene("Home");
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.M))
         {
 
             count = 0;
