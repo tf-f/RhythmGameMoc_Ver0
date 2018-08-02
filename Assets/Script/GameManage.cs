@@ -540,7 +540,8 @@ public class GameManage : MonoBehaviour
         _eMiss = false;
         te.GetComponent<TapEffects>().Great_Tap_Play();
         good_all++;
-        combo = 0;
+        combo++;
+        //combo = 0;
         ScoreUpdate(GOOD_N);
         Instantiate(Good);
     }
