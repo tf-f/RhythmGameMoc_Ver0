@@ -362,7 +362,7 @@ public class GameManage : MonoBehaviour
                 {
                     _timing[i] = float.Parse(values[0]);
                     _lineNum[i] = int.Parse(values[1]);
-                    if(_timing[0] == 0f)
+                    if(_timing[i] == 0f)
                     {
                         j--;
                         i--;
