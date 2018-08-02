@@ -82,7 +82,7 @@ public class Select_music : MonoBehaviour {
         if (enable_select)
         {
             //曲選択
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.K))
             {
                 if (TOTALMUSIC > Base.MusicNumber)
                 {
@@ -90,7 +90,7 @@ public class Select_music : MonoBehaviour {
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.I))
             {
                 if (0 < Base.MusicNumber)
                 {
@@ -98,7 +98,7 @@ public class Select_music : MonoBehaviour {
                 }
             }
             //難易度選択
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.J))
             {
                 if (0 < Base.MusicLevel)
                 {
@@ -106,7 +106,7 @@ public class Select_music : MonoBehaviour {
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.L))
             {
                 if (Base.MusicLevel < LEVEL - 1)
                 {

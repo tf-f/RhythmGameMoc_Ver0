@@ -30,7 +30,7 @@ public class Select_home : MonoBehaviour {
 
         if (HOMEselect < 3)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.K))
             {
                 HOMEselect++;
                 Button_Reset_Color();
@@ -38,7 +38,7 @@ public class Select_home : MonoBehaviour {
         }
         if (HOMEselect > 0)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.I))
             {
                 HOMEselect--;
                 Button_Reset_Color();
