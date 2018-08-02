@@ -326,7 +326,7 @@ public class NotesMaker : MonoBehaviour
 
     void WriteNotesTiming(int num)
     {
-        if(GetTiming() == 0f) break;
+        if(GetTiming() == 0f) return;
         Debug.Log(GetTiming());
         if(DEBUG){
             _CSVWriter.WriteCSV(GetTiming().ToString() + "," + num.ToString());
