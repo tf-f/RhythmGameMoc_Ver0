@@ -60,7 +60,7 @@ public class Select_home : MonoBehaviour {
                     Base.SetMode = true;
                     Select_Music();
                     break;
-                case 2: 
+                case 2:
                     Show_Result();
                     break;
                 case 3:
@@ -108,10 +108,17 @@ public class Select_home : MonoBehaviour {
 
     public void Show_Result()
     {
-        Button_Reset_Color();
-        Button_Reset_ALL();
-        SceneManager.LoadScene("Results_all");
-    }
+        try
+        {
+            Button_Reset_Color();
+            Button_Reset_ALL();
+            SceneManager.LoadScene("Results_all");
+        }
+        catch
+        {
+
+        }
+    } 
 
     public void GameEnd()
     {
