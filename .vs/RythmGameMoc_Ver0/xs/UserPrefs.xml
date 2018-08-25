@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{F82425DA-E2CB-E9BD-5EA7-753A9DB76BA5}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/UniRx/Examples/Sample01_ObservableWWW.cs">
+    <Files>
+      <File FileName="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/InspectableReactiveProperty.cs" Line="143" Column="1" />
+      <File FileName="Assets/Plugins/UniRx/Examples/Sample01_ObservableWWW.cs" Line="8" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
